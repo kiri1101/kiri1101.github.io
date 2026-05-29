@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jordan Tukum Folem — Full Stack Software Engineer based in Douala, Cameroon. Building enterprise-grade SaaS platforms and government-scale digital infrastructure.">
+  <meta name="keywords" content="Jordan Tukum Folem, Full Stack Developer, Laravel, Vue.js, React, TypeScript, Cameroon, Software Engineer, SaaS">
+  <meta name="author" content="Jordan Tukum Folem">
+  <meta property="og:title" content="Jordan Tukum Folem — Full Stack Software Engineer">
+  <meta property="og:description" content="Building enterprise-grade SaaS platforms and government-scale digital infrastructure. 5+ years delivering systems that shape nations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kiri1101.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jordan Tukum Folem — Full Stack Software Engineer">
+  <meta name="twitter:description" content="Building enterprise-grade SaaS platforms and government-scale digital infrastructure.">
+  <title>Jordan Tukum Folem — Full Stack Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg:      #0D0D10;
+      --surf:    #131316;
+      --b:       rgba(255, 255, 255, 0.07);
+      --bh:      rgba(255, 255, 255, 0.15);
+      --txt:     #EDEDEA;
+      --mut:     #71717A;
+      --acc:     #47ECD5;                              /* hex fallback */
+      --acc:     oklch(85.5% 0.138 181.071);           /* modern browsers */
+      --acc-a12: oklch(85.5% 0.138 181.071 / 0.12);
+      --acc-a35: oklch(85.5% 0.138 181.071 / 0.35);
+      --fd: 'Syne', sans-serif;
+      --fb: 'DM Sans', sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: var(--fb);
+      color: var(--txt);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 2px; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      border-bottom: 1px solid var(--b);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: var(--fd);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--txt);
+    }
+
+    .nav-right { display: flex; gap: 28px; align-items: center; }
+
+    .nav-link {
+      font-size: 12px;
+      color: var(--mut);
+      font-family: var(--fm);
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: color .2s;
+      user-select: none;
+      text-decoration: none;
+    }
+
+    .nav-link:hover { color: var(--txt); }
+
+    .nav-badge {
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--acc-a12);
+      color: var(--acc);
+      border: 1px solid var(--acc-a35);
+      font-family: var(--fm);
+    }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      padding: 96px 48px 80px;
+      border-bottom: 1px solid var(--b);
+      animation: fadeUp .9s ease both;
+    }
+
+    .hero-label {
+      font-family: var(--fm);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--mut);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--mut); }
+
+    .hero-name {
+      font-family: var(--fd);
+      font-size: clamp(64px, 10vw, 120px);
+      font-weight: 800;
+      line-height: .9;
+      letter-spacing: -.03em;
+      color: var(--txt);
+      margin-bottom: 48px;
+    }
+
+    .hero-name .accent { color: var(--acc); }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .hero-bio { font-size: 15px; color: var(--mut); max-width: 500px; line-height: 1.7; }
+
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .hero-tag {
+      font-size: 11px;
+      font-family: var(--fm);
+      padding: 5px 13px;
+      border-radius: 3px;
+      border: 1px solid var(--b);
+      color: var(--mut);
+      transition: all .2s;
+    }
+
+    .hero-tag:hover { border-color: var(--acc-a35); color: var(--acc); background: var(--acc-a12); }
+
+    /* ── SECTIONS ────────────────────────────────────── */
+    .section { padding: 72px 48px; border-bottom: 1px solid var(--b); }
+    .section--alt { background: var(--surf); }
+
+    .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 52px; }
+
+    .section-num { font-family: var(--fm); font-size: 11px; color: var(--mut); letter-spacing: .12em; }
+
+    .section-title { font-family: var(--fd); font-size: 28px; font-weight: 700; color: var(--txt); }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 55fr 45fr; gap: 64px; align-items: start; }
+
+    .about-quote {
+      font-family: var(--fd);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--txt);
+    }
+
+    .about-quote .highlight { color: var(--acc); }
+
+    .stats { display: flex; flex-direction: column; }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--b);
+    }
+
+    .stat:first-child { border-top: 1px solid var(--b); }
+
+    .stat-label { font-size: 12px; color: var(--mut); font-family: var(--fm); letter-spacing: .08em; text-transform: uppercase; }
+    .stat-value { font-family: var(--fd); font-size: 32px; font-weight: 800; color: var(--acc); }
+
+    /* ── PROJECTS ────────────────────────────────────── */
+    .project-row {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 16px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--b);
+      cursor: pointer;
+      transition: padding-left .25s, background .2s;
+    }
+
+    .project-row:first-child { border-top: 1px solid var(--b); }
+    .project-row:hover { padding-left: 12px; background: rgba(255,255,255,.02); }
+
+    .project-num { font-family: var(--fm); font-size: 11px; color: var(--mut); padding-top: 5px; letter-spacing: .06em; }
+
+    .project-name { font-family: var(--fd); font-size: 20px; font-weight: 700; color: var(--txt); margin-bottom: 4px; transition: color .2s; }
+    .project-row:hover .project-name { color: var(--acc); }
+
+    .project-sub { font-size: 13px; color: var(--mut); }
+
+    .project-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, margin-top .3s ease;
+      font-size: 14px;
+      color: var(--mut);
+      line-height: 1.75;
+    }
+
+    .project-desc.open { max-height: 200px; margin-top: 12px; }
+
+    .project-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; padding-top: 4px; }
+
+    .project-tag { font-size: 10px; font-family: var(--fm); padding: 3px 10px; border-radius: 2px; border: 1px solid var(--b); color: var(--mut); text-transform: uppercase; letter-spacing: .1em; }
+
+    .project-stack { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+
+    .stack-pill { font-size: 11px; font-family: var(--fm); padding: 3px 8px; border-radius: 2px; background: rgba(255,255,255,.03); border: 1px solid var(--b); color: var(--mut); }
+
+    .project-link { font-size: 11px; color: var(--acc); font-family: var(--fm); letter-spacing: .06em; text-decoration: none; margin-top: 2px; font-weight: 500; }
+
+    /* ── SKILLS ──────────────────────────────────────── */
+    .skill-row { display: grid; grid-template-columns: 160px 1fr; gap: 28px; padding: 18px 0; border-bottom: 1px solid var(--b); align-items: center; }
+    .skill-row:first-child { border-top: 1px solid var(--b); }
+
+    .skill-category { font-family: var(--fm); font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--mut); }
+
+    .skill-items { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .skill-item { font-size: 12px; font-family: var(--fm); padding: 5px 12px; border-radius: 3px; background: rgba(255,255,255,.03); border: 1px solid var(--b); color: var(--txt); transition: all .2s; }
+    .skill-item:hover { background: var(--acc-a12); border-color: var(--acc-a35); color: var(--acc); }
+
+    /* ── EXPERIENCE ──────────────────────────────────── */
+    .exp-row { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid var(--b); }
+    .exp-row:first-child { border-top: 1px solid var(--b); }
+
+    .exp-period { font-family: var(--fm); font-size: 11px; color: var(--mut); margin-bottom: 6px; letter-spacing: .06em; }
+    .exp-company { font-size: 14px; color: var(--acc); font-weight: 500; }
+
+    .exp-badge { display: inline-block; font-size: 10px; font-family: var(--fm); padding: 2px 9px; border-radius: 2px; background: var(--acc-a12); color: var(--acc); border: 1px solid var(--acc-a35); margin-top: 7px; }
+
+    .exp-role { font-family: var(--fd); font-size: 18px; font-weight: 700; color: var(--txt); margin-bottom: 14px; }
+
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .exp-points li { font-size: 13px; color: var(--mut); line-height: 1.75; padding-left: 18px; position: relative; }
+    .exp-points li::before { content: '—'; position: absolute; left: 0; color: rgba(255,255,255,.15); }
+
+    /* ── CONTACT ─────────────────────────────────────── */
+    .contact-inner { text-align: center; }
+
+    .contact-big { font-family: var(--fd); font-size: clamp(44px, 7vw, 88px); font-weight: 800; line-height: .95; letter-spacing: -.03em; color: var(--txt); margin-bottom: 40px; }
+    .contact-big .accent { color: var(--acc); }
+
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    .contact-btn { padding: 13px 28px; border-radius: 3px; font-size: 14px; font-weight: 500; font-family: var(--fb); text-decoration: none; transition: all .2s; display: inline-block; }
+
+    .contact-btn--primary { background: var(--acc); color: #0D0D10; font-weight: 700; }
+    .contact-btn--primary:hover { opacity: .88; }
+
+    .contact-btn--secondary { border: 1px solid var(--b); color: var(--txt); }
+    .contact-btn--secondary:hover { border-color: var(--bh); background: rgba(255,255,255,.04); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    .footer { padding: 22px 48px; border-top: 1px solid var(--b); display: flex; justify-content: space-between; align-items: center; }
+    .footer-text { font-size: 11px; color: var(--mut); font-family: var(--fm); letter-spacing: .06em; }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .exp-row { grid-template-columns: 1fr; gap: 10px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 24px; }
+      .nav-right { gap: 14px; }
+      .nav-link { display: none; }
+      .nav-link:last-of-type { display: block; }
+
+      .hero { padding: 60px 24px 48px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
+
+      .section { padding: 52px 24px; }
+
+      .project-row { grid-template-columns: 36px 1fr; }
+      .project-right { display: none; }
+
+      .skill-row { grid-template-columns: 90px 1fr; gap: 16px; }
+
+      .contact-big { font-size: clamp(36px, 10vw, 60px); }
+
+      .footer { padding: 18px 24px; flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-name">JTF®</span>
+    <div class="nav-right">
+      <span class="nav-link" data-goto="sec-work">Work</span>
+      <span class="nav-link" data-goto="sec-exp">Experience</span>
+      <span class="nav-link" data-goto="sec-contact">Contact</span>
+      <span class="nav-badge">● Available</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-label">Full Stack Software Engineer &nbsp;/&nbsp; Douala, Cameroon</div>
+    <div class="hero-name">
+      Jordan<br>
+      Tukum<br>
+      <span class="accent">Folem.</span>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-bio">Building enterprise-grade SaaS platforms and government-scale digital infrastructure. 5+ years delivering systems that shape nations.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Laravel</span>
+        <span class="hero-tag">Vue.js</span>
+        <span class="hero-tag">React</span>
+        <span class="hero-tag">TypeScript</span>
+        <span class="hero-tag">Nuxt</span>
+        <span class="hero-tag">Rust</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="sec-about">
+    <div class="section-header">
+      <span class="section-num">00</span>
+      <span class="section-title">About</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-quote">
+        I build systems that <span class="highlight">governments, aviation authorities,</span> and
+        <span class="highlight">financial institutions</span> rely on daily. Not prototypes —
+        production-grade software deployed at national scale.
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="stat-label">Years Active</span><span class="stat-value">5+</span></div>
+        <div class="stat"><span class="stat-label">Projects</span><span class="stat-value">9+</span></div>
+        <div class="stat"><span class="stat-label">Institutions</span><span class="stat-value">4</span></div>
+        <div class="stat"><span class="stat-label">Int'l Events</span><span class="stat-value">1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sec-work">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Selected Work</span>
+    </div>
+    <div id="projects-container"></div>
+  </section>
+
+  <section class="section section--alt" id="sec-stack">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Technical Stack</span>
+    </div>
+    <div id="skills-container"></div>
+  </section>
+
+  <section class="section" id="sec-exp">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Experience</span>
+    </div>
+    <div id="exp-container"></div>
+  </section>
+
+  <section class="section section--alt" id="sec-contact">
+    <div class="contact-inner">
+      <div class="section-header" style="justify-content:center;margin-bottom:44px">
+        <span class="section-num">04</span>
+        <span class="section-title">Contact</span>
+      </div>
+      <div class="contact-big">Let's build<br>something <span class="accent">great.</span></div>
+      <div class="contact-links">
+        <a href="mailto:jtukum@outlook.com" class="contact-btn contact-btn--primary">jtukum@outlook.com</a>
+        <a href="https://linkedin.com/in/jordan-tukum-811017137" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">LinkedIn</a>
+        <a href="https://github.com/kiri1101" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-text">JORDAN TUKUM FOLEM © 2026</span>
+    <span class="footer-text">DOUALA, CAMEROON 🇨🇲</span>
+  </footer>
+
+  <script>
+    const PROJECTS = [
+      { num:"01", name:"SERVICES PUBLICS", sub:"National e-Government Platform", desc:"Centralized digital portal consolidating all administrative procedures and non-tax revenue collection across Cameroonian government ministries. A cornerstone of Cameroon's national digital transformation initiative.", stack:["Vue.js","Nuxt","Laravel","TypeScript"], tag:"Gov't", link:"https://services-publics.cm/services/publics", linkLabel:"View Live ↗" },
+      { num:"02", name:"EQUIP4SAFETY", sub:"Aviation Equipment SaaS — ICAO/CCAA", desc:"B2B SaaS marketplace enabling aviation equipment sales and exchanges between ICAO member institutions worldwide. Commissioned by the Cameroon Civil Aviation Authority (CCAA).", stack:["Vue.js","Laravel","TypeScript"], tag:"Aviation", link:"https://demo.equip4safety.org/marketplace", linkLabel:"View Demo ↗" },
+      { num:"03", name:"CAMRAIL TICKETING", sub:"National Railway Self-Service System", desc:"Web application and interactive kiosk software for self-service ticket purchases at CAMRAIL stations in Douala and Yaoundé. Deployed across Cameroon's national railway network.", stack:["Laravel","Vue.js","NativePHP"], tag:"Transport", link:null, linkLabel:null },
+      { num:"04", name:"PORT OF DOUALA", sub:"Customs Tax Collection SaaS", desc:"SaaS platform automating customs tax and toll fee collection at the Port of Douala — one of Central Africa's principal commercial trade gateways.", stack:["Laravel","Vue.js","TypeScript"], tag:"Finance", link:null, linkLabel:null },
+      { num:"05", name:"HAURIZON PAY", sub:"SaaS Payment Platform", desc:"Upgraded and maintained a flagship SaaS payment platform for improved system stability, performance, and reliability across core business operations.", stack:["Laravel","Vue.js","MySQL"], tag:"Payments", link:null, linkLabel:null },
+      { num:"06", name:"FUND TRANSFER SAAS", sub:"International Banking System", desc:"Platform digitizing international fund transfer procedures for banking and financial institution clients, streamlining compliance and documentation workflows.", stack:["Laravel","Vue.js","TypeScript"], tag:"Banking", link:null, linkLabel:null },
+    ];
+
+    const SKILLS = [
+      { category:"Backend",  items:["PHP","Laravel","NativePHP","Rust"] },
+      { category:"Frontend", items:["JavaScript","TypeScript","Vue.js","Nuxt.js","React","Next.js","Tailwind CSS"] },
+      { category:"Mobile",   items:["Kotlin","NativePHP"] },
+      { category:"Tools",    items:["REST APIs","MySQL","Git","GitHub","GoHighLevel","Slack API"] },
+      { category:"Domains",  items:["SaaS","E-Government","Aviation Systems","Banking & Finance","E-Commerce"] },
+    ];
+
+    const EXPERIENCE = [
+      { role:"Full Stack Developer — Lead Engineer", company:"ADWA SARL", period:"May 2023 – Present", current:true, points:["Led SERVICES PUBLICS — Cameroon's national e-government portal","Led EQUIP4SAFETY — B2B SaaS for ICAO aviation equipment exchange","Built CAMRAIL self-service kiosk ticketing system","Contributed to Port of Douala customs tax SaaS","Official delegate — AFI Aviation Week 2025, Victoria Falls, Zimbabwe"] },
+      { role:"Full Stack Developer", company:"VMEDIA CONSULTING", period:"Oct 2022 – Apr 2023", current:false, points:["Contributed to multiple client SaaS products","Integrated GoHighLevel, Slack, Google Sheets & GoDaddy DNS APIs"] },
+      { role:"Full Stack Developer", company:"FORAMA", period:"Dec 2020 – Oct 2022", current:false, points:["Built and maintained HAURIZON SHOP e-commerce platform","Upgraded HAURIZON PAY flagship SaaS payment platform"] },
+      { role:"IT Intern", company:"HYDRAC", period:"Sep 2020 – Nov 2020", current:false, points:["Maintained network infrastructure and servers","Delivered software solutions to resolve technical bottlenecks"] },
+    ];
+
+    // ── Render projects
+    const pc = document.getElementById("projects-container");
+    PROJECTS.forEach((p, i) => {
+      const row = document.createElement("div");
+      row.className = "project-row";
+      row.innerHTML = `
+        <span class="project-num">${p.num}</span>
+        <div>
+          <div class="project-name">${p.name}</div>
+          <div class="project-sub">${p.sub}</div>
+          <div class="project-desc" id="desc-${i}">${p.desc}</div>
+        </div>
+        <div class="project-right">
+          <span class="project-tag">${p.tag}</span>
+          <div class="project-stack">${p.stack.map(s => `<span class="stack-pill">${s}</span>`).join("")}</div>
+          ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">${p.linkLabel}</a>` : ""}
+        </div>`;
+      row.addEventListener("click", () => document.getElementById(`desc-${i}`).classList.toggle("open"));
+      pc.appendChild(row);
+    });
+
+    // ── Render skills
+    document.getElementById("skills-container").innerHTML = SKILLS.map(g => `
+      <div class="skill-row">
+        <span class="skill-category">${g.category}</span>
+        <div class="skill-items">${g.items.map(it => `<span class="skill-item">${it}</span>`).join("")}</div>
+      </div>`).join("");
+
+    // ── Render experience
+    document.getElementById("exp-container").innerHTML = EXPERIENCE.map(j => `
+      <div class="exp-row">
+        <div>
+          <div class="exp-period">${j.period}</div>
+          <div class="exp-company">${j.company}</div>
+          ${j.current ? '<span class="exp-badge">Current</span>' : ""}
+        </div>
+        <div>
+          <div class="exp-role">${j.role}</div>
+          <ul class="exp-points">${j.points.map(pt => `<li>${pt}</li>`).join("")}</ul>
+        </div>
+      </div>`).join("");
+
+    // ── Smooth scroll navigation
+    document.querySelectorAll("[data-goto]").forEach(el => {
+      el.addEventListener("click", () => {
+        const target = document.getElementById(el.dataset.goto);
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - 68,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
