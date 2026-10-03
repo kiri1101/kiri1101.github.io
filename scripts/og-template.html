@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #F6F7F9; font-family: Montserrat, sans-serif; color: #13203A;
+    background-image: linear-gradient(#E6EBF2 1px, transparent 1px), linear-gradient(90deg, #E6EBF2 1px, transparent 1px); background-size: 32px 32px; }
+  .wrap { box-sizing: border-box; height: 630px; padding: 72px 80px; display: flex; flex-direction: column; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: 2px; color: #2E5BA8; display: flex; align-items: center; gap: 16px; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 40px; height: 3px; background: #2E5BA8; }
+  h1 { font-size: 104px; line-height: 0.95; font-weight: 800; letter-spacing: -4px; margin: 36px 0 28px; }
+  h1 span { color: #2E5BA8; }
+  p { font-size: 30px; font-weight: 500; color: #3A4A66; margin: 0; max-width: 960px; }
+  .foot { margin-top: auto; display: flex; gap: 14px; font-family: "JetBrains Mono", monospace; font-size: 22px; }
+  .chip { background: #13203A; color: #fff; padding: 10px 18px; border-radius: 8px; font-weight: 700; }
+  .chip.soft { background: #EAF0FA; color: #2E5BA8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1>Jordan<br>Tukum Folem<span>.</span></h1>
+  <p id="lead"></p>
+  <div class="foot"><span class="chip">Laravel · Vue · React</span><span class="chip soft" id="tests"></span><span class="chip soft">jordan-tukum.pages.dev</span></div>
+</div>
+<script>
+  const en = location.hash === '#en'
+  document.getElementById('eyebrow').textContent = en ? 'Full Stack Web & Mobile Developer — Douala' : 'Développeur Full Stack Web & Mobile — Douala'
+  document.getElementById('lead').textContent = en ? 'Web and mobile platforms shipped at national scale in Cameroon.' : 'Des plateformes web et mobiles livrées à l’échelle nationale au Cameroun.'
+  document.getElementById('tests').textContent = en ? '2,000+ tests' : '2 000+ tests'
+</script>
+</body>
+</html>
