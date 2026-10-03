@@ -30,3 +30,43 @@ describe.each(HOMES)('home $route — shell', ({ route, lang, nav, skip }) => {
   it('reserves room for the fixed mobile action bar', () => expect(html).toMatch(/pb-24[^"]*lg:pb-0/))
   it('keeps the Google site verification', () => expect(meta(html, 'google-site-verification')).toBe('-o3on4T7CLriyCJbh7NAqGm82V76NJrR7eSZ5Uz_WIM'))
 })
+
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { projects } from '../../content/projects'
+import { profile } from '../../content/profile'
+import { OUT } from './helpers'
+
+describe.each([
+  { route: '/', lang: 'fr' as const, tests: '2 000+', caseBase: '/projets/' },
+  { route: '/en', lang: 'en' as const, tests: '2,000+', caseBase: '/en/projects/' },
+])('home $route — content', ({ route, lang, tests, caseBase }) => {
+  const html = page(route)
+  const text = stripTags(html)
+
+  it('shows every case study with a link to it', () => {
+    for (const p of projects) {
+      expect(text).toContain(p.title[lang])
+      expect(html).toContain(`href="${caseBase}${p.slug}"`)
+    }
+  })
+  it('shows the proof strip', () => {
+    expect(text).toContain(tests)
+    for (const s of profile.stats) expect(text).toContain(s.label[lang])
+  })
+  it('links WhatsApp, email, LinkedIn and GitHub', () => {
+    for (const url of [profile.whatsappUrl, `mailto:${profile.email}`, profile.linkedinUrl, profile.githubUrl]) {
+      expect(html).toContain(`href="${url}"`)
+    }
+  })
+  it('names the institutions delivered for', () => {
+    for (const i of profile.deliveredFor) expect(text).toContain(i[lang])
+  })
+  it('references screenshots that exist', () => {
+    const sources = [...html.matchAll(/<img[^>]+src="(\/img\/[^"]+)"/g)].map(m => m[1]!)
+    expect(sources.length).toBeGreaterThanOrEqual(2)
+    for (const src of sources) expect(existsSync(join(OUT, src))).toBe(true)
+  })
+  it('has exactly one h1', () => expect(html.match(/<h1\b/g)).toHaveLength(1))
+  it('contains no placeholders', () => expect(text).not.toMatch(/\[À COMPLÉTER|TODO|lorem/i))
+})

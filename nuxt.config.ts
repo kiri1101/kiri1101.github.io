@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { projectSlugs } from './content/projects'
 
 const SITE_URL = 'https://jordan-tukum.pages.dev'
 
@@ -30,6 +31,10 @@ export default defineNuxtConfig({
       { code: 'fr', language: 'fr', name: 'Français', file: 'fr.json' },
       { code: 'en', language: 'en', name: 'English', file: 'en.json' },
     ],
+    customRoutes: 'config',
+    pages: {
+      'projets/[slug]': { fr: '/projets/[slug]', en: '/projects/[slug]' },
+    },
   },
   fonts: {
     // global: Tailwind v4 references the families through CSS variables, which font detection can miss
@@ -38,5 +43,10 @@ export default defineNuxtConfig({
       { name: 'JetBrains Mono', provider: 'google', weights: [400, 500, 700], subsets: ['latin', 'latin-ext'], global: true },
     ],
   },
-  nitro: { prerender: { crawlLinks: true, routes: ['/', '/en'] } },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/en', ...projectSlugs.flatMap(slug => [`/projets/${slug}`, `/en/projects/${slug}`])],
+    },
+  },
 })
