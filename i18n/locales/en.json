@@ -1,1 +1,88 @@
-{ "site": { "name": "Jordan Tukum Folem" } }
+{
+  "site": { "name": "Jordan Tukum Folem" },
+  "a11y": { "skip": "Skip to content" },
+  "nav": {
+    "home": "Jordan Tukum Folem — home",
+    "label": "Main navigation",
+    "projects": "Projects",
+    "method": "Method",
+    "career": "Career",
+    "skills": "Skills",
+    "contact": "Contact",
+    "language": "Language",
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "badge": { "open": "Open to opportunities" },
+  "seo": {
+    "homeTitle": "Jordan Tukum Folem — Full Stack Web & Mobile Developer in Douala",
+    "homeDescription": "Full stack developer (Laravel, Vue.js, React): web and mobile platforms shipped at national scale in Cameroon, 2,000+ automated tests, leading teams of 3–6 developers.",
+    "caseTitle": "{project} — case study · Jordan Tukum Folem",
+    "ogAlt": "Jordan Tukum Folem — Full Stack Web & Mobile Developer"
+  },
+  "hero": {
+    "eyebrow": "Full Stack Web & Mobile Developer — Douala",
+    "ctaProjects": "View projects",
+    "ctaCv": "Download my CV",
+    "profileTitle": "Profile",
+    "figure": "Fig. 01"
+  },
+  "proof": { "label": "Key figures" },
+  "trust": { "label": "Platforms delivered for" },
+  "projects": {
+    "title": "Selected work",
+    "count": "8 case studies",
+    "role": "My role",
+    "readCase": "Read the case study",
+    "caseShort": "Case study",
+    "privateCode": "Private code — walkthrough on request",
+    "kioskFigure": "Fig. 02 — Multi-service kiosk"
+  },
+  "kiosk": {
+    "printer": "Thermal printer",
+    "qr": "QR reader",
+    "id": "ID scanner",
+    "screen": "Touch screen · Nuxt 4"
+  },
+  "method": {
+    "title": "How I work",
+    "intro": "What you will find in my code — and can check in my public repositories."
+  },
+  "career": { "title": "Career", "distinction": "Distinction" },
+  "skills": { "title": "Skills" },
+  "other": { "title": "Other work", "code": "Public code" },
+  "education": { "title": "Education" },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "A role, a project?",
+    "titleAccent": "Let’s talk.",
+    "text": "In French or English, by email or on WhatsApp.",
+    "email": "Send an email",
+    "whatsapp": "WhatsApp",
+    "cv": "Download my CV",
+    "cvShort": "My CV"
+  },
+  "footer": { "builtWith": "Built with Nuxt 4", "source": "source code" },
+  "case": {
+    "back": "All projects",
+    "eyebrow": "Case study {number} / 08",
+    "factsTitle": "Project sheet",
+    "role": "Role",
+    "period": "Period",
+    "organisation": "Organisation",
+    "stack": "Stack",
+    "links": "Links",
+    "toc": "Contents",
+    "context": "Context",
+    "contribution": "My contribution",
+    "architecture": "Architecture",
+    "architectureFigure": "Fig. 02 — Application layers",
+    "keyDecision": "Key decision",
+    "quality": "Quality & evidence",
+    "result": "Outcome",
+    "prev": "Previous project",
+    "next": "Next project",
+    "ctaTitle": "Interested in this kind of platform?",
+    "ctaContact": "Contact me"
+  }
+}

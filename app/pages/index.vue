@@ -1,3 +1,13 @@
+<script setup lang="ts">
+const { t } = useI18n()
+useSeoMeta({
+  title: () => t('seo.homeTitle'),
+  description: () => t('seo.homeDescription'),
+})
+</script>
+
 <template>
-  <h1 class="p-8 text-4xl font-extrabold text-ink">{{ $t('site.name') }}</h1>
+  <section id="projects" class="mx-auto max-w-[1240px] px-5 py-16 md:px-8">
+    <h1 class="text-5xl font-extrabold">{{ t('site.name') }}</h1>
+  </section>
 </template>
