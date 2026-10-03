@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F6F7F9;
+  --color-surface: #FFFFFF;
+  --color-ink: #13203A;
+  --color-body: #3A4A66;
+  --color-muted: #5A6A85;
+  --color-line: #D5DCE6;
+  --color-grid: #E6EBF2;
+  --color-accent: #2E5BA8;
+  --color-accent-hover: #234A8C;
+  --color-accent-soft: #EAF0FA;
+  --color-tint: #EEF2F8;
+  --color-signal: #E3A32B;
+  --color-sky: #8FB3F0;
+  --color-mist: #A9B6CC;
+  --color-night: #0E182C;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+}
+
+@utility blueprint {
+  background-image: linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility blueprint-dark {
+  background-image: linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@layer base {
+  /* The site has no dark mode: keep native controls and scrollbars light too */
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  a { @apply text-accent; }
+  a:hover { @apply text-accent-hover; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .btn-primary { @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 rounded-lg bg-accent px-7 text-base font-bold text-white no-underline shadow-[0_6px_16px_rgb(46_91_168/0.28)] transition-colors hover:bg-accent-hover hover:text-white; }
+  .btn-secondary { @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 rounded-lg border-[1.5px] border-ink bg-surface px-7 text-base font-bold text-ink no-underline transition-colors hover:bg-tint hover:text-ink; }
+  .btn-light { @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 rounded-lg bg-white px-7 text-base font-bold text-ink no-underline transition-colors hover:bg-tint hover:text-ink; }
+  .btn-outline-light { @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 rounded-lg border-[1.5px] border-white px-7 text-base font-bold text-white no-underline transition-colors hover:bg-white/10 hover:text-white; }
+  .skip-link { @apply absolute left-4 -top-20 z-50 rounded-lg bg-ink px-4 py-3 font-semibold text-white no-underline focus:top-4; }
+}

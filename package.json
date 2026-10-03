@@ -1,0 +1,27 @@
+{
+  "name": "jordan-tukum-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "preview": "npx serve .output/public",
+    "typecheck": "nuxi typecheck",
+    "test": "vitest run",
+    "test:build": "vitest run --config vitest.build.config.ts",
+    "check": "npm run typecheck && npm run test && npm run generate && npm run test:build",
+    "postinstall": "nuxi prepare"
+  },
+  "dependencies": {
+    "@nuxt/fonts": "^0.14.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "nuxt": "^4.5.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.3",
+    "vue-tsc": "^3.3.12"
+  }
+}
