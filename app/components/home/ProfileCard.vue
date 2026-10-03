@@ -17,8 +17,8 @@ const l = useLocalized()
       </div>
     </dl>
     <div class="flex flex-wrap gap-6 border-t border-grid bg-paper px-6 py-4 text-sm font-bold">
-      <a :href="profile.linkedinUrl" target="_blank" rel="noopener" class="no-underline">LinkedIn ↗</a>
-      <a :href="profile.githubUrl" target="_blank" rel="noopener" class="no-underline">GitHub ↗</a>
+      <a :href="profile.linkedinUrl" target="_blank" rel="noopener" class="underline underline-offset-2">LinkedIn ↗</a>
+      <a :href="profile.githubUrl" target="_blank" rel="noopener" class="underline underline-offset-2">GitHub ↗</a>
     </div>
   </aside>
 </template>

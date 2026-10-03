@@ -1,8 +1,12 @@
 {
-  "site": { "name": "Jordan Tukum Folem" },
-  "a11y": { "skip": "Aller au contenu" },
+  "site": {
+    "name": "Jordan Tukum Folem"
+  },
+  "a11y": {
+    "skip": "Aller au contenu"
+  },
   "nav": {
-    "home": "Jordan Tukum Folem — accueil",
+    "home": "JTF — Jordan Tukum Folem, accueil",
     "label": "Navigation principale",
     "projects": "Projets",
     "method": "Méthode",
@@ -13,7 +17,9 @@
     "open": "Ouvrir le menu",
     "close": "Fermer le menu"
   },
-  "badge": { "open": "Ouvert aux opportunités" },
+  "badge": {
+    "open": "Ouvert aux opportunités"
+  },
   "seo": {
     "homeTitle": "Jordan Tukum Folem — Développeur Full Stack Web & Mobile à Douala",
     "homeDescription": "Développeur full stack (Laravel, Vue.js, React) : plateformes web et mobiles livrées à l’échelle nationale au Cameroun, plus de 2 000 tests automatisés, lead d’équipes de 3 à 6 développeurs.",
@@ -27,8 +33,12 @@
     "profileTitle": "Fiche profil",
     "figure": "Fig. 01"
   },
-  "proof": { "label": "Chiffres clés" },
-  "trust": { "label": "Plateformes livrées pour" },
+  "proof": {
+    "label": "Chiffres clés"
+  },
+  "trust": {
+    "label": "Plateformes livrées pour"
+  },
   "projects": {
     "title": "Projets sélectionnés",
     "count": "8 études de cas",
@@ -48,10 +58,20 @@
     "title": "Ma méthode",
     "intro": "Ce que vous retrouverez dans mon code — et que vous pouvez vérifier dans mes dépôts publics."
   },
-  "career": { "title": "Parcours", "distinction": "Distinction" },
-  "skills": { "title": "Compétences" },
-  "other": { "title": "Autres réalisations", "code": "Code public" },
-  "education": { "title": "Formation" },
+  "career": {
+    "title": "Parcours",
+    "distinction": "Distinction"
+  },
+  "skills": {
+    "title": "Compétences"
+  },
+  "other": {
+    "title": "Autres réalisations",
+    "code": "Code public"
+  },
+  "education": {
+    "title": "Formation"
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Un poste, un projet ?",
@@ -62,7 +82,10 @@
     "cv": "Télécharger mon CV",
     "cvShort": "Mon CV"
   },
-  "footer": { "builtWith": "Site réalisé avec Nuxt 4", "source": "code source" },
+  "footer": {
+    "builtWith": "Site réalisé avec Nuxt 4",
+    "source": "code source"
+  },
   "case": {
     "back": "Tous les projets",
     "eyebrow": "Étude de cas {number} / 08",

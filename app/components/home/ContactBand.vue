@@ -22,8 +22,8 @@ const { t, locale } = useI18n()
       </div>
       <p class="mt-2 font-mono text-sm text-mist">
         {{ profile.phone }} · {{ profile.email }} ·
-        <a :href="profile.linkedinUrl" target="_blank" rel="noopener" class="text-mist hover:text-white">LinkedIn ↗</a> ·
-        <a :href="profile.githubUrl" target="_blank" rel="noopener" class="text-mist hover:text-white">GitHub ↗</a>
+        <a :href="profile.linkedinUrl" target="_blank" rel="noopener" class="text-mist underline underline-offset-2 hover:text-white">LinkedIn ↗</a> ·
+        <a :href="profile.githubUrl" target="_blank" rel="noopener" class="text-mist underline underline-offset-2 hover:text-white">GitHub ↗</a>
       </p>
     </div>
   </section>

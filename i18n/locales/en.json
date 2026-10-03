@@ -1,8 +1,12 @@
 {
-  "site": { "name": "Jordan Tukum Folem" },
-  "a11y": { "skip": "Skip to content" },
+  "site": {
+    "name": "Jordan Tukum Folem"
+  },
+  "a11y": {
+    "skip": "Skip to content"
+  },
   "nav": {
-    "home": "Jordan Tukum Folem — home",
+    "home": "JTF — Jordan Tukum Folem, home",
     "label": "Main navigation",
     "projects": "Projects",
     "method": "Method",
@@ -13,7 +17,9 @@
     "open": "Open menu",
     "close": "Close menu"
   },
-  "badge": { "open": "Open to opportunities" },
+  "badge": {
+    "open": "Open to opportunities"
+  },
   "seo": {
     "homeTitle": "Jordan Tukum Folem — Full Stack Web & Mobile Developer in Douala",
     "homeDescription": "Full stack developer (Laravel, Vue.js, React): web and mobile platforms shipped at national scale in Cameroon, 2,000+ automated tests, leading teams of 3–6 developers.",
@@ -27,8 +33,12 @@
     "profileTitle": "Profile",
     "figure": "Fig. 01"
   },
-  "proof": { "label": "Key figures" },
-  "trust": { "label": "Platforms delivered for" },
+  "proof": {
+    "label": "Key figures"
+  },
+  "trust": {
+    "label": "Platforms delivered for"
+  },
   "projects": {
     "title": "Selected work",
     "count": "8 case studies",
@@ -48,10 +58,20 @@
     "title": "How I work",
     "intro": "What you will find in my code — and can check in my public repositories."
   },
-  "career": { "title": "Career", "distinction": "Distinction" },
-  "skills": { "title": "Skills" },
-  "other": { "title": "Other work", "code": "Public code" },
-  "education": { "title": "Education" },
+  "career": {
+    "title": "Career",
+    "distinction": "Distinction"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "other": {
+    "title": "Other work",
+    "code": "Public code"
+  },
+  "education": {
+    "title": "Education"
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "A role, a project?",
@@ -62,7 +82,10 @@
     "cv": "Download my CV",
     "cvShort": "My CV"
   },
-  "footer": { "builtWith": "Built with Nuxt 4", "source": "source code" },
+  "footer": {
+    "builtWith": "Built with Nuxt 4",
+    "source": "source code"
+  },
   "case": {
     "back": "All projects",
     "eyebrow": "Case study {number} / 08",

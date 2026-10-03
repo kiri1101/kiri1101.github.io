@@ -70,3 +70,17 @@ describe.each([
   it('has exactly one h1', () => expect(html.match(/<h1\b/g)).toHaveLength(1))
   it('contains no placeholders', () => expect(text).not.toMatch(/\[À COMPLÉTER|TODO|lorem/i))
 })
+
+describe.each(['/', '/en'])('home %s — accessibility details', (route) => {
+  const html = page(route)
+
+  it('includes the visible "JTF" text in the logo link’s accessible name', () => {
+    expect(html).toMatch(/<a[^>]*aria-label="JTF[^"]*"[^>]*>\s*JTF\s*<\/a>/)
+  })
+
+  it('underlines links that sit inside same-coloured text', () => {
+    const inline = [...html.matchAll(/<a[^>]*href="(https:\/\/(?:github\.com\/kiri1101(?:\/kiri1101\.github\.io)?|linkedin\.com\/in\/[^"]+))"[^>]*class="([^"]*)"[^>]*>(?:LinkedIn|GitHub|code source|source code)/g)]
+    expect(inline.length).toBeGreaterThanOrEqual(3)
+    for (const [, href, cls] of inline) expect(cls, href).toMatch(/\bunderline\b/)
+  })
+})
