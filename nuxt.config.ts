@@ -48,6 +48,9 @@ export default defineNuxtConfig({
     // which writes to dist/ instead of the .output/public the dashboard is set to deploy.
     preset: 'static',
     prerender: {
+      // Emit en.html / projets/<slug>.html: served at /en and /projets/<slug> with a 200, matching
+      // the canonical, hreflang and sitemap URLs (folder/index.html would redirect to a trailing slash).
+      autoSubfolderIndex: false,
       crawlLinks: true,
       routes: ['/', '/en', ...projectSlugs.flatMap(slug => [`/projets/${slug}`, `/en/projects/${slug}`])],
     },

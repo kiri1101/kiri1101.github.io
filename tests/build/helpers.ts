@@ -4,8 +4,10 @@ import { join } from 'node:path'
 export const OUT = join(process.cwd(), '.output', 'public')
 export const SITE = 'https://jordan-tukum.pages.dev'
 
+// Pages are emitted as flat files (en.html, projets/<slug>.html): Cloudflare Pages serves them at
+// /en and /projets/<slug> with a 200, whereas folder/index.html would 307-redirect to a trailing slash.
 export function page(route: string): string {
-  const relative = route === '/' ? 'index.html' : `${route.replace(/^\//, '')}/index.html`
+  const relative = route === '/' ? 'index.html' : `${route.replace(/^\//, '')}.html`
   const file = join(OUT, relative)
   if (!existsSync(file)) throw new Error(`Missing prerendered page: ${relative}`)
   return readFileSync(file, 'utf8')
@@ -37,7 +39,5 @@ export const stripTags = (html: string): string =>
     .replace(/&(amp|lt|gt|quot|nbsp|#39|#x27);/g, m => ENTITIES[m] ?? m)
     .replace(/\s+/g, ' ')
 
-export const urlVariants = (path: string): string[] => {
-  const base = `${SITE}${path === '/' ? '' : path}`
-  return [base, `${base}/`]
-}
+// Exactly one accepted form, without a trailing slash: the URL the host serves with a 200.
+export const urlVariants = (path: string): string[] => [`${SITE}${path === '/' ? '' : path}`]

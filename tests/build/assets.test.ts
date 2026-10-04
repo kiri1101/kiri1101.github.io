@@ -9,6 +9,14 @@ describe('static assets', () => {
     expect(existsSync(join(OUT, file))).toBe(true)
   })
 
+  it('emits flat page files, never folder/index.html (which would redirect to a trailing slash)', () => {
+    const routes = ['en', ...projectSlugs.flatMap(s => [`projets/${s}`, `en/projects/${s}`])]
+    for (const route of routes) {
+      expect(existsSync(join(OUT, `${route}.html`)), route).toBe(true)
+      expect(existsSync(join(OUT, route, 'index.html')), `${route}/index.html`).toBe(false)
+    }
+  })
+
   it('ships social images of 1200 × 630', () => {
     for (const file of ['og-fr.png', 'og-en.png']) {
       const png = readFileSync(join(OUT, file))
