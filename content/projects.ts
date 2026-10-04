@@ -312,7 +312,7 @@ export const projects: Project[] = [
     quality: [
       { value: { fr: 'Démo', en: 'Demo' }, label: { fr: 'Publique et en ligne', en: 'Public and online' } },
       { value: { fr: 'OACI', en: 'ICAO' }, label: { fr: 'États membres visés', en: 'Member states targeted' } },
-      { value: same('2025'), label: { fr: 'Délégation CCAA à l’AFI Aviation Week', en: 'CCAA delegation at AFI Aviation Week' } },
+      { value: same('2025'), label: { fr: 'Représenté à l’AFI Aviation Week', en: 'Represented at AFI Aviation Week' } },
     ],
     result: {
       fr: 'Démo publique en ligne sur demo.equip4safety.org ; projet représenté au sein de la délégation de la CCAA à l’AFI Aviation Week 2025.',
