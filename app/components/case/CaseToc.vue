@@ -23,7 +23,7 @@ onBeforeUnmount(() => observer?.disconnect())
       <li v-for="s in sections" :key="s.id">
         <a
           :href="`#${s.id}`" :aria-current="active === s.id ? 'location' : undefined"
-          class="block rounded-lg px-3 py-2 no-underline" :class="active === s.id ? 'bg-accent-soft text-accent' : 'text-body hover:text-accent'"
+          class="flex min-h-11 items-center rounded-lg px-3 py-2 no-underline" :class="active === s.id ? 'bg-accent-soft text-accent' : 'text-body hover:text-accent'"
         >{{ s.label }}</a>
       </li>
     </ol>

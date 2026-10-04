@@ -38,3 +38,12 @@ describe('case-study titles', () => {
     expect(new Set(titles).size).toBe(16)
   })
 })
+
+describe('case-study contents links', () => {
+  it('meet the 44 px touch-target minimum (spec §7)', () => {
+    const html = page('/projets/services-publics')
+    const tocLinks = [...html.matchAll(/<a[^>]*href="#(context|contribution|architecture|quality|result)"[^>]*class="([^"]*)"/g)]
+    expect(tocLinks).toHaveLength(5)
+    for (const [, id, cls] of tocLinks) expect(cls, id).toMatch(/\bmin-h-11\b/)
+  })
+})
