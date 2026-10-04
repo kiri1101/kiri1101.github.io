@@ -26,7 +26,11 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - run: npm run generate
+      # Build in Cloudflare Pages' environment so a preset regression (output in dist/) fails the build tests
+      - name: Generate as Cloudflare Pages would
+        run: npm run generate
+        env:
+          CF_PAGES: '1'
       - run: npm run test:build
       - if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3

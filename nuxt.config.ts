@@ -44,6 +44,9 @@ export default defineNuxtConfig({
     ],
   },
   nitro: {
+    // Pin the preset: on Cloudflare Pages, auto-detection picks `cloudflare-pages-static`,
+    // which writes to dist/ instead of the .output/public the dashboard is set to deploy.
+    preset: 'static',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/en', ...projectSlugs.flatMap(slug => [`/projets/${slug}`, `/en/projects/${slug}`])],
