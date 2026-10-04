@@ -64,7 +64,7 @@ export const projects: Project[] = [
     },
     quality: [
       { value: same('≈ 900'), label: { fr: 'Commits depuis 2023', en: 'Commits since 2023' } },
-      { value: same('PHPUnit'), label: { fr: 'Tests unitaires et fonctionnels', en: 'Unit and feature tests' } },
+      { value: same('3'), label: { fr: 'Environnements : test, pré-production, production', en: 'Environments: test, pre-production, production' } },
       { value: same('Docker'), label: { fr: 'Environnements conteneurisés', en: 'Containerised environments' } },
     ],
     result: { fr: 'En production sur services-publics.cm.', en: 'In production at services-publics.cm.' },
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     },
     stack: ['Tauri 2', 'Nuxt 4', 'Nitro', 'Laravel', 'Inertia'],
     badges: [
-      { tone: 'live', label: { fr: 'Déployé en gares', en: 'Deployed in stations' } },
+      { tone: 'live', label: { fr: 'CAMRAIL : déployé en gares', en: 'CAMRAIL: deployed in stations' } },
       { tone: 'proof', label: { fr: 'Matériel + logiciel', en: 'Hardware + software' } },
     ],
     links: [],
@@ -205,8 +205,8 @@ export const projects: Project[] = [
     role: lead,
     period: { fr: 'déc. 2025 — 2026', en: 'Dec 2025 — 2026' },
     organisation: {
-      fr: 'Établissements bancaires de la zone CEMAC · réalisé chez ADWA SARL',
-      en: 'Banks in the CEMAC zone · delivered at ADWA SARL',
+      fr: 'Secteur bancaire de la zone CEMAC · réalisé chez ADWA SARL',
+      en: 'Banking sector, CEMAC zone · delivered at ADWA SARL',
     },
     stack: ['Nuxt 4', 'TypeScript', 'Zod', 'PrimeVue', 'Vitest'],
     badges: [
@@ -312,11 +312,11 @@ export const projects: Project[] = [
     quality: [
       { value: { fr: 'Démo', en: 'Demo' }, label: { fr: 'Publique et en ligne', en: 'Public and online' } },
       { value: { fr: 'OACI', en: 'ICAO' }, label: { fr: 'États membres visés', en: 'Member states targeted' } },
-      { value: same('2025'), label: { fr: 'Présenté à l’AFI Aviation Week', en: 'Presented at AFI Aviation Week' } },
+      { value: same('2025'), label: { fr: 'Délégation CCAA à l’AFI Aviation Week', en: 'CCAA delegation at AFI Aviation Week' } },
     ],
     result: {
-      fr: 'Démo publique en ligne sur demo.equip4safety.org ; projet présenté lors de l’AFI Aviation Week 2025.',
-      en: 'Public demo live at demo.equip4safety.org; the project was presented at AFI Aviation Week 2025.',
+      fr: 'Démo publique en ligne sur demo.equip4safety.org ; projet représenté au sein de la délégation de la CCAA à l’AFI Aviation Week 2025.',
+      en: 'Public demo live at demo.equip4safety.org; the project was represented within the CCAA delegation at AFI Aviation Week 2025.',
     },
   },
   {

@@ -26,3 +26,10 @@ describe('i18n locale files', () => {
     expect(empty).toEqual([])
   })
 })
+
+describe('SEO description wording', () => {
+  it('does not claim mobile platforms at national scale', () => {
+    expect((fr as { seo: { homeDescription: string } }).seo.homeDescription).toContain('dont plusieurs')
+    expect((en as { seo: { homeDescription: string } }).seo.homeDescription).toContain('several of them')
+  })
+})

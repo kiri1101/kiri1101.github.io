@@ -7,12 +7,12 @@ export const profile: Profile = {
   title: { fr: 'Développeur Full Stack Web & Mobile', en: 'Full Stack Web & Mobile Developer' },
   location: { fr: 'Douala, Cameroun', en: 'Douala, Cameroon' },
   valueProp: {
-    fr: 'Je conçois, teste et mets en production des plateformes web et mobiles utilisées à l’échelle nationale — pour des ministères, la CAMRAIL, le Port Autonome de Douala et l’Autorité Aéronautique du Cameroun.',
-    en: 'I design, test and ship web and mobile platforms used at national scale — for government ministries, CAMRAIL, the Port of Douala and the Cameroon Civil Aviation Authority.',
+    fr: 'Je conçois, teste et mets en production des plateformes web et mobiles — dont plusieurs à l’échelle nationale, pour des ministères, la CAMRAIL, le Port Autonome de Douala et l’Autorité Aéronautique du Cameroun.',
+    en: 'I design, test and ship web and mobile platforms — several of them at national scale, for government ministries, CAMRAIL, the Port of Douala and the Cameroon Civil Aviation Authority.',
   },
   valuePropShort: {
-    fr: 'Je conçois, teste et mets en production des plateformes web et mobiles utilisées à l’échelle nationale.',
-    en: 'I design, test and ship web and mobile platforms used at national scale.',
+    fr: 'Je conçois, teste et mets en production des plateformes web et mobiles, dont plusieurs à l’échelle nationale.',
+    en: 'I design, test and ship web and mobile platforms, several of them at national scale.',
   },
   email: 'jtukum@outlook.com',
   phone: '+237 698 377 389',

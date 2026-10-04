@@ -115,3 +115,36 @@ describe('content', () => {
     expect(cvPath('en')).toBe('/cv/CV_Jordan_TUKUM_FOLEM_EN.pdf')
   })
 })
+
+describe('claims backed by evidence (final review)', () => {
+  const sp = getProject('services-publics')!
+  const e4s = getProject('equip4safety')!
+  const kiosk = getProject('bornes-libre-service')!
+  const ewa = getProject('conformite-bancaire')!
+
+  it('does not credit SERVICES PUBLICS with a test suite its repo does not have', () => {
+    expect(strings(sp.quality).filter(s => /PHPUnit|tests unitaires|unit and feature/i.test(s))).toEqual([])
+  })
+
+  it('says EQUIP4SAFETY was represented within the CCAA delegation, not presented at AFI', () => {
+    expect(strings(e4s).filter(s => /\b(présenté|presented)/i.test(s))).toEqual([])
+  })
+
+  it('does not claim mobile platforms at national scale', () => {
+    for (const text of [profile.valueProp, profile.valuePropShort]) {
+      expect(text.fr).toContain('dont plusieurs')
+      expect(text.en).toContain('several of them')
+    }
+  })
+
+  it('attributes the station deployment to CAMRAIL, not to the multi-service kiosk', () => {
+    const live = kiosk.badges.find(b => b.tone === 'live')!
+    expect(live.label.fr).toMatch(/^CAMRAIL/)
+    expect(live.label.en).toMatch(/^CAMRAIL/)
+  })
+
+  it('describes the compliance client as the banking sector, not as several banks', () => {
+    expect(ewa.organisation.fr).not.toMatch(/Établissements/)
+    expect(ewa.organisation.en).not.toMatch(/^Banks/)
+  })
+})
