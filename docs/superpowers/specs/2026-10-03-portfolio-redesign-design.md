@@ -153,9 +153,15 @@ test. Lighthouse checked manually once before merge.
      directory `.output/public`, env `NODE_VERSION=24`. Safe at any time: production keeps serving
      its last successful deployment until something new reaches `main`.
   3. Push `redesign` → Cloudflare builds a preview at `redesign.jordan-tukum.pages.dev`, reviewable
-     from the owner's phone on a Cameroonian network.
-  4. Owner's go → merge to `main` → production. Owner switches the GitHub Pages source to
-     "GitHub Actions" so the mirror deploys from CI.
+     from the owner's phone on a Cameroonian network. Check with `curl` *without* following
+     redirects: every page URL must answer 200 directly.
+  4. Owner switches the GitHub Pages source to "GitHub Actions" **before** the merge (with the
+     legacy branch source, Jekyll would render the README once `index.html` is gone).
+  5. Owner's go → merge to `main` → production; the mirror deploys from CI.
+- Build output: `nitro.preset` is pinned to `static` (Cloudflare's auto-detected
+  `cloudflare-pages-static` preset would write to `dist/`), and pages are emitted as flat files
+  (`en.html`, `projets/<slug>.html`) so `/en` and `/projets/<slug>` answer 200 without a
+  trailing-slash redirect. CI builds with `CF_PAGES=1` to catch a preset regression.
 
 ## 12. Out of scope
 

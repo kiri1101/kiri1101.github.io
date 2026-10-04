@@ -3487,20 +3487,23 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 git push -u origin redesign
 ```
 
-- [ ] **Step 3: Verify the preview from the owner's network**
+- [ ] **Step 3: Verify the preview from the owner's network — without following redirects**
 
 ```bash
-for u in https://redesign.jordan-tukum.pages.dev/ https://redesign.jordan-tukum.pages.dev/en https://redesign.jordan-tukum.pages.dev/projets/schulyf https://redesign.jordan-tukum.pages.dev/cv/CV_Jordan_TUKUM_FOLEM_FR.pdf; do
-  printf "%-70s %s\n" "$u" "$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "$u")"
+B=https://redesign.jordan-tukum.pages.dev
+for p in / /en /projets/schulyf /en/projects/schulyf /cv/CV_Jordan_TUKUM_FOLEM_FR.pdf /projets/inconnu; do
+  printf "%-45s %s\n" "$p" "$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$B$p")"
 done
 ```
-Expected: `200` for all four (the first Cloudflare build takes a few minutes; re-run until green or the build log shows an error). Also confirm the GitHub Actions run on `redesign` is green (`gh run list --branch redesign --limit 1`). Ask the owner to review the preview on their phone.
+Expected: `200` for the first five and `404` for `/projets/inconnu` — no `301`/`307`/`308`: the canonical, hreflang and sitemap URLs must answer 200 directly (final review #2). The first Cloudflare build takes a few minutes; re-run until green or the build log shows an error. Also confirm the GitHub Actions run on `redesign` is green (`gh run list --branch redesign --limit 1`). Ask the owner to review the preview on their phone.
 
-- [ ] **Step 4: On the owner's go, merge and publish**
+- [ ] **Step 4: Before merging, ask the owner to switch the GitHub Pages source** — GitHub → repo Settings → Pages → Source = "GitHub Actions". The repo is still on the legacy "branch: main /" source; merging first would make Jekyll render the README at kiri1101.github.io (final review #4). Confirm with `gh api repos/kiri1101/kiri1101.github.io/pages --jq .build_type` → `workflow`.
+
+- [ ] **Step 5: On the owner's go, merge and publish**
 
 ```bash
 git switch main && git pull --ff-only && git merge --ff-only redesign && git push origin main
 ```
-Then verify `https://jordan-tukum.pages.dev/` serves the new site (look for `Projets sélectionnés` in the HTML). Ask the owner to set GitHub → repo Settings → Pages → Source = "GitHub Actions"; confirm the `deploy-mirror` job succeeds.
+Then verify `https://jordan-tukum.pages.dev/` serves the new site (look for `Projets sélectionnés` in the HTML), confirm the `deploy-mirror` job succeeds, and check the mirror's `https://kiri1101.github.io/en` once (expected 200, through a VPN if needed).
 
-- [ ] **Step 5: Record the outcome** in `C:\Users\jtuku\OneDrive\Documents\CV\CLAUDE.md` (portfolio section: live, URLs, how to edit content, where the general CVs live: `CV_general/`).
+- [ ] **Step 6: Record the outcome** in `C:\Users\jtuku\OneDrive\Documents\CV\CLAUDE.md` (portfolio section: live, URLs, how to edit content, where the general CVs live: `CV_general/`).

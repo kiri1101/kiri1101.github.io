@@ -14,6 +14,17 @@ Bilingual (FR/EN) portfolio built with Nuxt 4, prerendered to static HTML.
 | `npm run generate` | Static build into `.output/public` |
 | `npm run test:build` | Checks the generated HTML (titles, hreflang, links, assets, CVs) |
 | `npm run check` | Typecheck + tests + build + build tests — run before every push |
+| `npm run preview` | Serves `.output/public` with clean URLs (`/en` → `en.html`), like Cloudflare |
+
+## Hosting notes
+
+- The Nitro preset is pinned to `static`: Cloudflare's auto-detected preset would write to `dist/`
+  while the dashboard deploys `.output/public` (build command `npx nuxi generate`, `NODE_VERSION=24`).
+- Pages are emitted as flat files (`en.html`, `projets/<slug>.html`) so `/en` and `/projets/<slug>`
+  answer 200 with no trailing-slash redirect — they are the canonical/hreflang/sitemap URLs.
+  `python -m http.server` does not map `/en` to `en.html`; use `npm run preview` instead.
+- The GitHub Pages mirror deploys from CI: the repo's Pages source must be "GitHub Actions"
+  (switch it before the first merge of a build without a root `index.html` in git).
 
 ## Editing content
 
