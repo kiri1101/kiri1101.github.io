@@ -1,0 +1,11 @@
+{
+  // Cloudflare Pages project config (used by `wrangler pages dev` and `wrangler pages deploy`). On Pages this file is
+  // the source of truth for the project's configuration: variables typed in the dashboard may be ignored.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jordan-tukum",
+  "pages_build_output_dir": "build/client",
+  "compatibility_date": "2026-10-01",
+  "vars": { "CONTACT_TO": "jtukum@outlook.com" }
+  // Secrets RESEND_API_KEY and TURNSTILE_SECRET are never listed here: set them in the dashboard or with
+  // `wrangler pages secret put`, and locally in .dev.vars.
+}

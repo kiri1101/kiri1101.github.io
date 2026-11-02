@@ -1,0 +1,6 @@
+# Local development for `npx wrangler pages dev build/client`. Copy to .dev.vars (git-ignored) and fill in.
+# On Cloudflare Pages: CONTACT_TO is a plain variable; RESEND_API_KEY and TURNSTILE_SECRET are secrets.
+CONTACT_TO=jtukum@outlook.com
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+# Cloudflare's always-pass test secret (pairs with the default always-pass test site key)
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA

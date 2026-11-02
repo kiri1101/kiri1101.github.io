@@ -1,0 +1,14 @@
+# Response headers for Cloudflare's static assets (Workers assets and Pages read this file from the build output;
+# it is not served). scripts/serve-compressed.mjs applies the same rules locally.
+
+# Vite's output: every file under /assets/ has its content hash in its name, so it never changes under that name.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Every page and file. Workers static assets add no security headers of their own (Pages did not either).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

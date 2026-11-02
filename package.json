@@ -1,27 +1,42 @@
 {
-  "name": "jordan-tukum-portfolio",
+  "name": "orbit-portfolio",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxi dev",
-    "generate": "nuxi generate",
-    "preview": "npx serve .output/public",
-    "typecheck": "nuxi typecheck",
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "preview": "node scripts/serve-compressed.mjs --port 4173",
+    "typecheck": "react-router typegen && tsc",
     "test": "vitest run",
-    "test:build": "vitest run --config vitest.build.config.ts",
-    "check": "npm run typecheck && npm run test && npm run generate && npm run test:build",
-    "postinstall": "nuxi prepare"
+    "test:e2e": "playwright test",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "poster": "node scripts/poster.mjs",
+    "card-textures": "node scripts/card-textures.mjs",
+    "images": "node scripts/capture-images.ts",
+    "og": "node scripts/og-images.ts"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.14.0",
-    "@nuxtjs/i18n": "^10.6.0",
-    "nuxt": "^4.5.2"
+    "isbot": "^5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^8.5.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3",
-    "typescript": "~6.0.3",
-    "vitest": "^5.0.3",
-    "vue-tsc": "^3.3.12"
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@react-router/dev": "^8.5.0",
+    "@types/node": "^22",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/three": "^0.186.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.1.1",
+    "sharp": "^0.35.5",
+    "sirv": "^3.0.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.3",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
   }
 }

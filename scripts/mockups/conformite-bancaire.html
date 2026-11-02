@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>conformite-bancaire — illustrative screens</title>
+<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+  .cb { --from: #1c1509; --to: #3a2c12; --ac: #b9780f; --ac-soft: #f6e7c8; --ac-ink: #6a4306; --sb: #1c1509; --bg: #f8f6f1; }
+  .cb .ring { position: relative; width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--ac) 0 82%, rgba(22,32,42,.1) 82% 100%); }
+  .cb .ring::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: #fff; }
+  .cb .ring b { position: absolute; inset: 0; display: grid; place-items: center; font-size: 34px; letter-spacing: -.03em; }
+  .cb .chk { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid rgba(22,32,42,.07); font-size: 15px; }
+  .cb .chk.first { border-top: 0; }
+  .cb .chk .tick { background: #e0f4e8; color: #17703d; }
+  .cb .chk .tick.w { background: #fdf0d2; color: #8a5a07; }
+  .cb .chk .tick.b { background: #fbe1df; color: #a32a22; }
+  .cb .chk .tick.b::after { border: 0; width: 10px; height: 2px; background: currentColor; transform: none; }
+  .cb .chk .tick.w::after { border: 0; width: 2px; height: 10px; background: currentColor; transform: none; }
+  .cb .lock { padding: 16px 20px; border-radius: 16px; background: #fff; box-shadow: 0 30px 50px -20px rgba(0,0,0,.5); font-size: 14.5px; }
+</style>
+</head>
+<body>
+
+<!-- Illustrative screens (no real interface is shown): a client file being completed, then the compliance dashboard. -->
+<section class="shot cover cb" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window" style="left:100px;top:170px;width:1400px;height:800px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>compliance.example</b>/clients/C-20418</span></div>
+    <div class="body"><div class="ui">
+      <div class="sb"><div class="brand"><i></i>Transfer compliance</div>
+        <div class="nav">Dashboard</div><div class="nav on">Client files</div><div class="nav">Transfers</div><div class="nav">Expiries</div><div class="nav">Reports</div>
+        <div class="foot"><span class="av" style="background:rgba(255,255,255,.14);color:#fff">AM</span>Compliance officer</div></div>
+      <div class="main">
+        <div class="top"><div><h2>Client file C-20418</h2><div class="sub">Sample Trading Ltd · international transfers · opened 03 Nov 2025</div></div><div class="row" style="gap:10px"><span class="pill" style="background:#fff;box-shadow:0 0 0 1px rgba(22,32,42,.16)">FR | <b>EN</b></span><span class="btn-p">Save and continue</span></div></div>
+        <div class="grid" style="grid-template-columns:1.25fr 1fr">
+          <div class="panel">
+            <h3 style="margin-bottom:14px">Company details</h3>
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
+              <div><div class="lbl">Legal name</div><div class="input">Sample Trading Ltd</div></div>
+              <div><div class="lbl">Registration number</div><div class="input err">RC/2019/B/12</div><div class="errmsg">Expected format: RC/YYYY/B/NNNNN</div></div>
+              <div><div class="lbl">Activity</div><div class="input">Import and distribution</div></div>
+              <div><div class="lbl">Country</div><div class="input">Example country</div></div>
+              <div><div class="lbl">Signatory</div><div class="input">A. Sample</div></div>
+              <div><div class="lbl">Signatory ID expiry</div><div class="input">14 / 06 / 2026</div></div>
+            </div>
+            <div class="row" style="gap:12px;margin-top:20px"><span class="btn-g">Upload a document</span><span class="muted" style="font-size:13.5px">PDF, JPG or PNG · 10 MB max</span></div>
+          </div>
+          <div class="col" style="gap:18px">
+            <div class="panel row" style="gap:22px"><div class="ring"><b>82%</b></div><div><h3>File completeness</h3><div class="sub">9 of 11 documents valid</div><div style="margin-top:12px"><span class="badge warn">2 actions needed</span></div></div></div>
+            <div class="panel"><h3>Required documents</h3>
+              <div class="chk first" style="margin-top:6px"><span class="tick"></span><span class="grow">Company registration extract</span><span class="muted">valid</span></div>
+              <div class="chk"><span class="tick"></span><span class="grow">Tax identification</span><span class="muted">valid</span></div>
+              <div class="chk"><span class="tick w"></span><span class="grow">Signatory ID</span><span class="muted">expires in 42 days</span></div>
+              <div class="chk"><span class="tick b"></span><span class="grow">Proof of address</span><span class="muted">missing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <div class="lock" style="left:1000px;top:1010px"><b>Form validated on the server</b> <span class="muted">· secrets never reach the browser</span></div>
+</section>
+
+<section class="shot portrait cb" data-shot="cover-phone" data-reframe="cover" data-frame="800,540,1.5"></section>
+
+<section class="shot cb" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome" style="left:110px;top:80px;width:1380px;height:840px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>compliance.example</b>/dashboard</span></div>
+    <div class="body"><div class="ui">
+      <div class="sb"><div class="brand"><i></i>Transfer compliance</div>
+        <div class="nav on">Dashboard</div><div class="nav">Client files</div><div class="nav">Transfers</div><div class="nav">Expiries</div><div class="nav">Reports</div>
+        <div class="foot"><span class="av" style="background:rgba(255,255,255,.14);color:#fff">AM</span>Compliance officer</div></div>
+      <div class="main">
+        <div class="top"><div><h2>Audit readiness</h2><div class="sub">Documentation held for international transfers</div></div><span class="btn-p">Export audit pack</span></div>
+        <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:18px">
+          <div class="panel kpi"><b>312</b><span>Client files</span></div>
+          <div class="panel kpi"><b>91%</b><span>Complete and valid</span></div>
+          <div class="panel kpi"><b style="color:#8a5a07">17</b><span>Expiring within 60 days</span></div>
+          <div class="panel kpi"><b style="color:#a32a22">6</b><span>Missing a required document</span></div>
+        </div>
+        <div class="panel" style="padding:18px 8px 6px">
+          <table>
+            <tr><th>File</th><th>Client</th><th>Completeness</th><th>Next expiry</th><th>Status</th></tr>
+            <tr><td class="strong">C-20418</td><td>Sample Trading Ltd</td><td style="width:200px"><div class="prog"><i style="width:82%"></i></div></td><td class="muted">14 Jun 2026</td><td><span class="badge warn">Action needed</span></td></tr>
+            <tr><td class="strong">C-20391</td><td>Example Logistics</td><td><div class="prog"><i style="width:100%"></i></div></td><td class="muted">02 Nov 2026</td><td><span class="badge ok">Audit ready</span></td></tr>
+            <tr><td class="strong">C-20377</td><td>Demo Agro Co.</td><td><div class="prog"><i style="width:64%"></i></div></td><td class="muted">30 May 2026</td><td><span class="badge bad">Missing document</span></td></tr>
+            <tr><td class="strong">C-20352</td><td>Sample Pharma</td><td><div class="prog"><i style="width:100%"></i></div></td><td class="muted">19 Jan 2027</td><td><span class="badge ok">Audit ready</span></td></tr>
+            <tr><td class="strong">C-20340</td><td>Illustration Textiles</td><td><div class="prog"><i style="width:91%"></i></div></td><td class="muted">21 Jun 2026</td><td><span class="badge warn">Action needed</span></td></tr>
+            <tr><td class="strong">C-20318</td><td>Example Energy</td><td><div class="prog"><i style="width:100%"></i></div></td><td class="muted">08 Sep 2026</td><td><span class="badge ok">Audit ready</span></td></tr>
+            <tr><td class="strong">C-20302</td><td>Demo Construction</td><td><div class="prog"><i style="width:73%"></i></div></td><td class="muted">11 May 2026</td><td><span class="badge bad">Missing document</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

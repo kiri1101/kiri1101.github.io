@@ -1,0 +1,921 @@
+/* Header */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px var(--gutter);
+  color: var(--ink);
+  transition: color 0.5s ease;
+  pointer-events: none;
+}
+
+.site-header[data-dark] {
+  color: var(--cream);
+}
+
+.site-header a {
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.site-header .logo {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.site-header .logo-narrow {
+  display: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.site-header nav a {
+  white-space: nowrap;
+}
+
+.site-header nav a:last-child {
+  border-bottom: 1px solid currentColor;
+}
+
+/* The language switch: the other language's short code, quieter than the links around it. */
+.site-header nav a.lang-switch {
+  align-self: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.site-header nav a.lang-switch:hover,
+.site-header nav a.lang-switch:focus-visible {
+  opacity: 1;
+}
+
+/* Hero */
+.hero {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.hero-left {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 58px;
+  max-width: 660px;
+}
+
+.hero h1 {
+  font-weight: 500;
+  font-size: clamp(40px, 4.5vw, 78px);
+  line-height: 0.93;
+  letter-spacing: -0.048em;
+}
+
+.hero h1 span {
+  display: block;
+  font-weight: 400;
+}
+
+.hero .sub {
+  margin-top: 20px;
+  max-width: 520px;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--dim);
+}
+
+.cta {
+  pointer-events: auto;
+  margin-top: 28px;
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+  padding: 17px 28px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(16, 24, 32, 0.26);
+}
+
+.cta i,
+.hud-link i {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-right {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 58px;
+  width: 350px;
+}
+
+.hero-right p {
+  font-size: 19px;
+  line-height: 1.26;
+  letter-spacing: -0.015em;
+}
+
+.hero-right p span {
+  color: #5c6260;
+}
+
+.pills {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pills li {
+  border: 1px solid rgba(16, 24, 32, 0.5);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hint {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* Transit title */
+.transit {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--cream);
+  text-align: center;
+}
+
+.transit h2 {
+  font-weight: 400;
+  font-size: clamp(36px, 5.4vw, 92px);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  text-shadow: 0 2px 30px rgba(4, 4, 6, 0.55);
+}
+
+.transit h2 em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--warm);
+}
+
+.transit p {
+  margin-top: 24px;
+  font-size: clamp(17px, 1.5vw, 22px);
+  letter-spacing: 0.01em;
+  color: rgba(242, 239, 232, 0.92);
+  text-shadow: 0 1px 18px rgba(4, 4, 6, 0.9), 0 0 3px rgba(4, 4, 6, 0.7);
+}
+
+/* HUD */
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--cream);
+}
+
+.hud .info {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 52px;
+  max-width: 46vw;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hud .info.swap {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.hud .idx {
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.hud .cat {
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.72);
+}
+
+.hud h3 {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: clamp(40px, 5.4vw, 92px);
+  letter-spacing: -0.052em;
+  line-height: 0.92;
+}
+
+.hud-link {
+  pointer-events: auto;
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242, 239, 232, 0.4);
+  padding-bottom: 3px;
+}
+
+.meter {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 54px;
+  width: 190px;
+  text-align: right;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.meter .bar {
+  margin-top: 10px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.meter .bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--cream);
+}
+
+.credit {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 18px;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: rgba(242, 239, 232, 0.62);
+}
+
+/*
+ * The deep field's credit (#space-credit) hangs from this zero-height anchor between the track and the closing
+ * sections. While they are below the screen the anchor sticks to its bottom edge, so the line sits in the corner where
+ * the list's own credit sits. Once they scroll in, the anchor stays on their top edge, so the line rides 18 px (14 px on
+ * phones) above it, over the deep field still showing, moved by the real scroll: one element, no handover. Above the
+ * HUD (same layer, later in the page); below the list, which covers it with its own credit at the same place.
+ */
+.credit-anchor {
+  position: sticky;
+  bottom: 0;
+  z-index: 6;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Ink over the light studio, cream once the black hole has swallowed the corner (applyPhases). */
+#space-credit {
+  opacity: 0;
+  visibility: hidden;
+  color: rgba(16, 24, 32, 0.62);
+  transition: color 0.2s ease;
+}
+
+#space-credit[data-dark] {
+  color: rgba(242, 239, 232, 0.62);
+}
+
+/* View toggle and list view */
+.toggle {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 13;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(18, 18, 24, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s, visibility 0s 0.4s;
+}
+
+.toggle.on {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.4s;
+}
+
+.toggle button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: rgba(242, 239, 232, 0.78);
+}
+
+.toggle button[aria-pressed="true"] {
+  background: var(--cream);
+  color: #0b0b0f;
+}
+
+/*
+ * Closed, the list is hidden the way .sr-only hides: clipped to nothing, not visibility:hidden, so a screen reader that
+ * reads the page from the top still meets every project link (spec §7). The clip takes effect after the fade-out.
+ * On a short viewport the open list scrolls, and its padding keeps the first title clear of the switch (top) and the
+ * last clear of the credit (bottom); "safe" centring starts at the top edge instead of cutting off the overflow.
+ */
+.list {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  display: grid;
+  place-items: safe center;
+  overflow-y: auto;
+  padding: 84px 24px;
+  background: rgba(4, 4, 6, 0.94);
+  color: var(--cream);
+  opacity: 0;
+  clip-path: inset(50%);
+  pointer-events: none;
+  transition: opacity 0.35s, clip-path 0s 0.35s;
+}
+
+.list.on {
+  opacity: 1;
+  clip-path: inset(0);
+  pointer-events: auto;
+  transition: opacity 0.35s;
+}
+
+.list ol {
+  text-align: center;
+}
+
+.list .credit {
+  position: fixed;
+}
+
+.list a {
+  font-size: clamp(20px, min(3.5vw, 5.6vh), 54px);
+  letter-spacing: -0.045em;
+  line-height: 1.16;
+  text-decoration: none;
+  color: rgba(242, 239, 232, 0.86);
+  transition: color 0.2s;
+}
+
+.list a:hover,
+.list a:focus-visible {
+  color: var(--warm);
+}
+
+/* The project the visitor came back from ("Back to orbit"): warm, with a small dot before it. */
+.list a[aria-current="true"] {
+  color: var(--warm);
+}
+
+.list a[aria-current="true"]::before {
+  content: "";
+  display: inline-block;
+  width: 0.22em;
+  height: 0.22em;
+  margin-right: 0.35em;
+  border-radius: 50%;
+  vertical-align: 0.28em;
+  background: currentColor;
+}
+
+.list small {
+  margin-left: 12px;
+  vertical-align: middle;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.62);
+}
+
+/* Scroll track: gives the page its scroll length, measured in 100lvh so mobile address bars do not shift it. */
+#track {
+  position: relative;
+  z-index: -1;
+  height: calc(var(--track-len, 1) * 100vh);
+  height: calc(var(--track-len, 1) * 100lvh);
+}
+
+/* Dark sections after the track */
+.after {
+  position: relative;
+  z-index: 10;
+  background-color: var(--night);
+  color: var(--cream);
+  background-image:
+    radial-gradient(1px 1px at 12% 8%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 72% 4%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 44% 32%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 88% 44%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 26% 58%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 63% 81%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(45% 12% at 18% 12%, rgba(255, 140, 80, 0.13), rgba(255, 140, 80, 0)),
+    radial-gradient(45% 12% at 85% 72%, rgba(255, 140, 80, 0.1), rgba(255, 140, 80, 0));
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.kicker b {
+  margin-right: 10px;
+  font-weight: 500;
+  color: var(--warm);
+}
+
+/* Outro */
+#outro {
+  display: grid;
+  place-items: center;
+  gap: 28px;
+  padding: 140px var(--gutter) 40px;
+  text-align: center;
+}
+
+#outro h2 {
+  font-weight: 500;
+  font-size: clamp(36px, 5.4vw, 92px);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+#outro .cta {
+  margin-top: 0;
+  background: var(--cream);
+  color: #0b0b0f;
+  box-shadow: none;
+}
+
+/* About */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+  gap: 72px;
+  padding: 110px 56px 0;
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(70% 55% at 50% 42%, #1c1410 0%, #0d0b0c 70%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.portrait::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 58%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 232, 210, 0.95) 0 8%, rgba(255, 150, 86, 0.55) 28%, rgba(255, 150, 86, 0.12) 55%, rgba(255, 150, 86, 0) 72%);
+}
+
+.portrait span {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 76px;
+  letter-spacing: -0.04em;
+  color: #2a170c;
+}
+
+.facts {
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
+}
+
+.facts dt {
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.stmt {
+  margin-top: 22px;
+  font-size: 52px;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.stmt span {
+  color: rgba(242, 239, 232, 0.62);
+}
+
+.stmt em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--warm);
+  letter-spacing: -0.01em;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.principles li {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 16px;
+}
+
+.principles h4 {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.principles p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(242, 239, 232, 0.72);
+}
+
+.exp {
+  margin-top: 56px;
+}
+
+.exp li {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+.exp li span:first-child {
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.exp small {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(242, 239, 232, 0.62);
+}
+
+.about .sub {
+  margin-top: 56px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.56);
+}
+
+.about .sub + .principles,
+.about .sub + .exp {
+  margin-top: 18px;
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.figures li {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 14px;
+}
+
+.figures strong {
+  display: block;
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+}
+
+.figures span {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.figures small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(242, 239, 232, 0.62);
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 15px;
+  color: var(--warm);
+}
+
+/* Contact */
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: 72px;
+  padding: 150px 56px 0;
+}
+
+.contact h2 {
+  margin-top: 22px;
+  font-weight: 500;
+  font-size: clamp(84px, 10.5vw, 150px);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+}
+
+.contact h2 i {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.contact .lead {
+  margin-top: 28px;
+  max-width: 500px;
+  font-size: 22px;
+  line-height: 1.35;
+  color: rgba(242, 239, 232, 0.85);
+}
+
+.direct {
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+}
+
+.direct a {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.direct-email {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.direct a span,
+.direct .tag {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.direct .tag {
+  cursor: pointer;
+  background: none;
+}
+
+.direct .tag:hover {
+  color: var(--cream);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.socials {
+  margin-top: 30px;
+  display: flex;
+  gap: 22px;
+  font-size: 15px;
+  color: rgba(242, 239, 232, 0.72);
+}
+
+.site-footer {
+  margin-top: 130px;
+  padding: 28px 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: rgba(242, 239, 232, 0.62);
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    padding: 18px var(--gutter);
+  }
+
+  .site-header nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .site-header nav a:not(:last-child):not(.lang-switch) {
+    display: none;
+  }
+
+  /* The full name stays the logo's accessible name; the monogram is what shows. */
+  .site-header .logo-wide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .site-header .logo-narrow {
+    display: inline;
+  }
+
+  .hero-left {
+    right: var(--gutter);
+    bottom: 44px;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .hud .info {
+    bottom: 40px;
+    max-width: 84vw;
+  }
+
+  .meter {
+    display: none;
+  }
+
+  .credit {
+    bottom: 14px;
+  }
+
+  .toggle {
+    top: 56px;
+  }
+
+  .list {
+    padding: 112px 22px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 70px 22px 0;
+  }
+
+  .portrait {
+    aspect-ratio: 1;
+  }
+
+  .portrait span {
+    font-size: 60px;
+  }
+
+  .stmt {
+    font-size: 32px;
+  }
+
+  .principles {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .exp li {
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+  }
+
+  .exp li span:nth-child(2) {
+    color: var(--cream);
+  }
+
+  .figures {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .about .sub {
+    margin-top: 40px;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 100px 22px 0;
+  }
+
+  .contact .lead {
+    font-size: 18px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 22px;
+    margin-top: 80px;
+  }
+}
+
+/*
+ * Without JavaScript (root.tsx sets data-defer only when scripts run): the list is an ordinary section of the page, the
+ * scroll track collapses (nothing drives it, so it would be about eleven empty screens), and what needs a script is
+ * left out: the form (the Worker takes JSON only, so the direct email link stands) and the Copy button.
+ */
+:root:not([data-defer]) #track {
+  display: none;
+}
+
+:root:not([data-defer]) .list {
+  position: static;
+  opacity: 1;
+  clip-path: none;
+  pointer-events: auto;
+  background: var(--night);
+  padding: 80px 24px;
+}
+
+:root:not([data-defer]) .list .credit {
+  display: none;
+}
+
+:root:not([data-defer]) #contact-form-slot,
+:root:not([data-defer]) .direct .tag {
+  display: none;
+}

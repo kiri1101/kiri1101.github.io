@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>orbit-portfolio — captures of the demo</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  .ob { --from: #14101c; --to: #2b1f45; }
+  .ob .body img, .ob .screen img { position: absolute; display: block; }
+  .ob .screen { background: #000; }
+</style>
+</head>
+<body>
+
+<!-- Real captures of the Orbit demo (headed Chromium, hardware WebGL), with the demo's header cropped out so the
+     demo's fictional owner name does not appear. Files: scripts/mockups/assets/orbit-portfolio/. -->
+<section class="shot cover ob" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome" style="left:80px;top:170px;width:1340px;height:824px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>orbit.example</b></span></div>
+    <div class="body"><img src="assets/orbit-portfolio/galaxy.webp" alt="" style="left:0;top:0;width:1340px;height:778px"></div>
+  </div>
+  <div class="phone dark" style="left:1150px;top:330px"><div class="screen" style="background:#000">
+    <img src="assets/orbit-portfolio/galaxy-mobile.webp" alt="" style="left:0;top:0;width:356px;height:798px;object-fit:cover;object-position:50% 0">
+    <div class="status light" style="position:absolute;left:0;right:0;top:0;z-index:6"><span>9:41</span><span class="sig"><i></i><i></i><i></i><i></i><span class="bat"></span></span></div>
+    <div class="home-bar" style="background:rgba(255,255,255,.8);z-index:6"></div>
+  </div></div>
+</section>
+
+<section class="shot portrait ob" data-shot="cover-phone" data-reframe="cover" data-frame="800,620,1.25"></section>
+
+<section class="shot ob" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome" style="left:90px;top:90px;width:1100px;height:685px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>orbit.example</b>/work/kumo-home</span></div>
+    <div class="body"><img src="assets/orbit-portfolio/case-study.webp" alt="" style="left:0;top:0;width:1100px;height:639px"></div>
+  </div>
+  <div class="window dark-chrome" style="left:820px;top:520px;width:690px;height:430px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url" style="width:260px"><b>orbit.example</b></span></div>
+    <div class="body"><img src="assets/orbit-portfolio/hole.webp" alt="" style="left:0;top:0;width:690px;height:384px;object-fit:cover"></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

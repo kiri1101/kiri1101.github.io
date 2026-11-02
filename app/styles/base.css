@@ -1,0 +1,306 @@
+/*
+ * The reset, in the lowest layer so every rule of the site beats it. The pages used to take it from Tailwind's
+ * preflight (the only thing Tailwind did here: no utility class was used) and these are the parts of it they rely on.
+ */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+
+  html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  a {
+    text-decoration: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  ::placeholder {
+    opacity: 1;
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+  }
+
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+
+
+html {
+  background: var(--space);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ol,
+ul,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Full-screen layers. Performance rules: no CSS filter and no blend modes on these;
+   the space image is darkened in the file itself. Layers that start transparent are also
+   visibility:hidden, because a transparent layer still costs compositing work.
+   No CSS masks either: a full-screen mask that changes every frame is re-rasterised and re-applied by the
+   compositor each time, which took the black hole to 10-20 fps on an HD 4600. */
+
+/* The window onto space. The black hole opens as this disc, centred on the orb's core and resized each frame;
+   its round clip is composited, unlike a mask. It sits above the studio, floor and glow and below the horizon,
+   which follows it. Closed (0 x 0) before the hole opens; the whole stage once it is open. */
+#hole {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* The fixed layers' box (sized and counter-moved from script, see placeWindow), so #space is laid out in it
+   exactly as it would be as a fixed layer of its own. Its colour is the page's, behind space as it fades in.
+   Its own layer, so moving it each frame is a compositor offset rather than a repaint of the whole box. */
+#space-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--space);
+  will-change: transform;
+}
+
+#space {
+  position: absolute;
+  inset: -6%;
+  background: var(--space) url("/space/deep-field-dim.webp") center / cover no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity, transform;
+}
+
+@supports (background-image: image-set(url("a.avif") type("image/avif"))) {
+  #space {
+    background-image: image-set(
+      url("/space/deep-field-dim.avif") type("image/avif"),
+      url("/space/deep-field-dim.webp") type("image/webp")
+    );
+  }
+}
+
+/* Space shows only once the black hole opens, screens below the first one: with JavaScript its image is
+   requested after the first paint (data-defer and data-late, see tokens.css). */
+:root[data-defer]:not([data-late]) #space {
+  background-image: none;
+}
+
+#space::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(75% 65% at 50% 42%, rgba(4, 4, 6, 0) 0%, rgba(4, 4, 6, 0.5) 68%, rgba(4, 4, 6, 0.92) 100%);
+}
+
+#studio {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(120% 95% at 50% 30%, #f8f8f9 0%, #e7e8eb 52%, #d4d6da 100%);
+  will-change: opacity;
+}
+
+/* The orb sits where the scene's hero camera projects it: 41.2vh down on wide screens, 35.8vh on phones.
+   The floor shadow is 27vh below it. */
+#floor,
+#glow,
+#horizon {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#floor {
+  z-index: 1;
+  top: 68.2vh;
+  width: 44vw;
+  height: 5vh;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(38, 42, 50, 0.2), rgba(38, 42, 50, 0.06) 55%, rgba(38, 42, 50, 0) 100%);
+}
+
+#glow {
+  z-index: 1;
+  top: 41.2vh;
+  width: 52vh;
+  height: 52vh;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 138, 74, 0.62), rgba(255, 150, 90, 0.2) 42%, rgba(255, 150, 90, 0) 70%);
+  will-change: opacity, transform;
+}
+
+#horizon {
+  z-index: 2;
+  top: 41.2vh;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow:
+    0 0 0 1.5px rgba(255, 226, 200, 0.95),
+    0 0 34px 6px rgba(255, 140, 70, 0.6),
+    0 0 120px 24px rgba(255, 120, 60, 0.25),
+    inset 0 0 70px 14px rgba(255, 140, 70, 0.4);
+}
+
+#orb-poster {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  top: 41.2vh;
+  width: auto;
+  /* The orb spans 91% of the poster: 47.5vh of 52vh here, 32.8vh of 36vh on phones. */
+  height: 52vh;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* The content box's width, not 100vw: a classic scrollbar is outside it, and the poster and the layers centred
+   on the orb (left: 50%) measure from the same box. 100vh keeps the height steady when a phone's bar moves. */
+#scene {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  #glow,
+  #horizon,
+  #orb-poster {
+    top: 35.8vh;
+  }
+
+  #floor {
+    top: 62.8vh;
+  }
+
+  #orb-poster {
+    height: 36vh;
+  }
+}
+
+/* Measures 100lvh in pixels; the scroll unit does not change when a mobile address bar shows or hides. */
+#unit-probe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  height: 100lvh;
+  visibility: hidden;
+  pointer-events: none;
+}

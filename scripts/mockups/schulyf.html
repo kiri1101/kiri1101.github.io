@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>schulyf — illustrative screens</title>
+<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+  .sl { --from: #101426; --to: #252d5c; --ac: #4f5fe0; --ac-soft: #e3e6fb; --ac-ink: #2b3596; --sb: #101426; --bg: #f4f5fa; }
+  .sl .muted { color: rgba(22,32,42,.55); }
+  .sl .col3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sl .lane { padding: 14px; border-radius: 14px; background: rgba(22,32,42,.05); }
+  .sl .lane .eyebrow { margin: 2px 4px 12px; color: rgba(22,32,42,.55); display: flex; justify-content: space-between; }
+  .sl .cardx { margin-bottom: 10px; padding: 13px 14px; border-radius: 12px; background: #fff; box-shadow: 0 0 0 1px rgba(22,32,42,.06), 0 6px 14px -10px rgba(22,32,42,.3); font-size: 14px; }
+  .sl .cardx b { display: block; font-size: 14.5px; }
+  .sl .cardx span { color: rgba(22,32,42,.55); font-size: 13px; }
+  .sl .receipt { padding: 40px 44px; border-radius: 6px; background: #fff; color: #16202a; box-shadow: 0 50px 70px -24px rgba(0,0,0,.55); }
+  .sl .receipt .line { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid rgba(22,32,42,.1); font-size: 16px; }
+  .sl .stamp { display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin-top: 22px; border-radius: 10px; background: #f0f2fe; font-size: 13.5px; }
+  .sl .stamp code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: #2b3596; }
+  .sl .qr { flex: none; width: 74px; height: 74px; border-radius: 6px; background:
+    conic-gradient(#16202a 25%, #fff 0 50%, #16202a 0 75%, #fff 0) 0 0 / 14px 14px; box-shadow: 0 0 0 5px #fff, 0 0 0 6px rgba(22,32,42,.2); }
+</style>
+</head>
+<body>
+
+<!-- Illustrative screens (no real interface is shown): admissions and payment standing, then a signed receipt and its public verification. -->
+<section class="shot cover sl" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window" style="left:100px;top:170px;width:1400px;height:800px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>campus.example</b>/admissions</span></div>
+    <div class="body"><div class="ui">
+      <div class="sb"><div class="brand"><i></i>University admin</div>
+        <div class="nav on">Admissions</div><div class="nav">Students</div><div class="nav">Payments</div><div class="nav">Exams</div><div class="nav">Announcements</div>
+        <div class="foot"><span class="av" style="background:rgba(255,255,255,.14);color:#fff">SO</span>Student affairs</div></div>
+      <div class="main">
+        <div class="top"><div><h2>Admissions 2026</h2><div class="sub">Applications triaged by student-affairs officers</div></div><div class="row" style="gap:10px"><span class="search" style="width:260px;height:40px">Search applicants</span><span class="btn-p">Admit selected</span></div></div>
+        <div class="col3">
+          <div class="lane"><div class="eyebrow"><span>Received</span><span>14</span></div>
+            <div class="cardx"><b>Applicant A. Sample</b><span>Computer science · Bachelor</span></div>
+            <div class="cardx"><b>Applicant B. Demo</b><span>Law · Bachelor</span></div>
+            <div class="cardx"><b>Applicant C. Example</b><span>Biology · Master</span></div></div>
+          <div class="lane"><div class="eyebrow"><span>Under review</span><span>9</span></div>
+            <div class="cardx"><b>Applicant D. Sample</b><span>Economics · Bachelor</span><div style="margin-top:8px"><span class="badge info">Documents checked</span></div></div>
+            <div class="cardx"><b>Applicant E. Demo</b><span>Engineering · Master</span><div style="margin-top:8px"><span class="badge warn">Missing a transcript</span></div></div></div>
+          <div class="lane"><div class="eyebrow"><span>Admitted</span><span>21</span></div>
+            <div class="cardx"><b>Student F. Example</b><span>Computer science · Bachelor</span><div style="margin-top:8px"><span class="badge ok">Registered as student</span></div></div>
+            <div class="cardx"><b>Student G. Sample</b><span>Law · Bachelor</span><div style="margin-top:8px"><span class="badge ok">Registered as student</span></div></div></div>
+        </div>
+        <div class="panel" style="margin-top:18px;padding:18px 8px 6px"><div class="between" style="padding:0 14px 8px"><h3>Payment standing</h3><span class="muted" style="font-size:13.5px">Instalments computed live</span></div><table>
+          <tr><th>Student</th><th>Instalment 1</th><th>Instalment 2</th><th>Instalment 3</th><th>Exam access</th></tr>
+          <tr><td class="strong">Student F. Example</td><td><span class="badge ok">Paid</span></td><td><span class="badge ok">Paid</span></td><td><span class="badge idle">Due 30 Jun</span></td><td><span class="badge ok">Granted</span></td></tr>
+          <tr><td class="strong">Student H. Demo</td><td><span class="badge ok">Paid</span></td><td><span class="badge bad">Overdue</span></td><td><span class="badge idle">Due 30 Jun</span></td><td><span class="badge warn">Deferred</span></td></tr>
+        </table></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="shot portrait sl" data-shot="cover-phone" data-reframe="cover" data-frame="800,540,1.5"></section>
+
+<section class="shot sl" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="receipt" style="left:150px;top:90px;width:700px;height:820px">
+    <div class="between"><div class="brand" style="margin:0;display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px"><i style="width:32px;height:32px;border-radius:10px;background:#4f5fe0;display:block"></i>University admin</div><span class="muted" style="font-size:14px">Receipt REC-2026-000123</span></div>
+    <h2 class="serif" style="margin-top:46px;font-size:54px;font-weight:400;line-height:1">Payment receipt</h2>
+    <div class="muted" style="margin-top:8px;font-size:16px">Issued 12 March 2026 · academic year 2025–2026</div>
+    <div style="margin-top:36px">
+      <div class="line"><span class="muted">Student</span><b>Student F. Example</b></div>
+      <div class="line"><span class="muted">Programme</span><b>Computer science · Bachelor</b></div>
+      <div class="line"><span class="muted">Instalment</span><b>2 of 3</b></div>
+      <div class="line"><span class="muted">Method</span><b>Bank slip, checked</b></div>
+      <div class="line"><span class="muted">Amount</span><b style="font-size:22px">150 000</b></div>
+    </div>
+    <div class="stamp"><div class="qr"></div><div><b>Signed receipt</b><div class="muted" style="margin-top:4px">HMAC signature <code>9f3a…c21e</code></div><div class="muted">Scan to verify online</div></div></div>
+  </div>
+  <div class="window" style="left:930px;top:200px;width:560px;height:620px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url" style="width:300px"><b>campus.example</b>/verify/REC-…</span></div>
+    <div class="body"><div class="ui" style="--bg:#f4f5fa"><div class="full" style="padding:34px 36px;text-align:center">
+      <div class="tick" style="width:74px;height:74px;margin:10px auto 0;background:#e0f4e8;color:#17703d"></div>
+      <h2 style="margin-top:22px">Receipt is valid</h2>
+      <div class="sub" style="margin-top:8px">The signature matches the receipt held by the university.</div>
+      <div class="panel" style="margin-top:26px;text-align:left">
+        <div class="between" style="padding:7px 0"><span class="muted">Receipt</span><b>REC-2026-000123</b></div>
+        <div class="between" style="padding:7px 0;border-top:1px solid rgba(22,32,42,.08)"><span class="muted">Amount</span><b>150 000</b></div>
+        <div class="between" style="padding:7px 0;border-top:1px solid rgba(22,32,42,.08)"><span class="muted">Issued</span><b>12 Mar 2026</b></div>
+        <div class="between" style="padding:7px 0;border-top:1px solid rgba(22,32,42,.08)"><span class="muted">Signature</span><b>Verified</b></div>
+      </div>
+      <div class="muted" style="margin-top:20px;font-size:13.5px">Public page: no sign-in needed</div>
+    </div></div></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

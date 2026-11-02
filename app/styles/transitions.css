@@ -1,0 +1,27 @@
+/* Page transitions (Ruling R35): a cross-fade between pages where the browser has View Transitions. Links between
+   home and the case studies navigate with React Router's `viewTransition`; a full page load between them (before the
+   app has started, or without JavaScript) uses the cross-document opt-in. Elsewhere navigation is plain.
+   The home scene is not drawing while a transition runs: leaving, its last frame is part of the frozen snapshot;
+   arriving, it is built during the cross-fade but presents its first frame only once it has finished (useScene's
+   hold). */
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduced motion: the page changes at once. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

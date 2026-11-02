@@ -1,0 +1,204 @@
+/* Contact form (approved mock-up: about-contact.html) */
+.cf {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  padding: 34px;
+}
+
+.cf-field {
+  margin-bottom: 22px;
+}
+
+.cf-field label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.55);
+}
+
+.cf-field input,
+.cf-field textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0 12px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 19px;
+  color: var(--cream);
+}
+
+.cf-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.cf-field input::placeholder,
+.cf-field textarea::placeholder {
+  color: rgba(242, 239, 232, 0.32);
+}
+
+.cf-field input:focus-visible,
+.cf-field textarea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--cream);
+}
+
+.cf-field[data-invalid] input,
+.cf-field[data-invalid] textarea {
+  border-bottom-color: #ff7a5c;
+}
+
+.cf-msg {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ff9d84;
+}
+
+/* The human check: a quiet status row; the widget itself only appears if Cloudflare needs an interaction. */
+.cf-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  margin: 6px 0 24px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 14px;
+  color: rgba(242, 239, 232, 0.7);
+}
+
+.cf-check i {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border: 2px solid rgba(242, 239, 232, 0.3);
+  border-radius: 6px;
+}
+
+.cf-check[data-ok] i {
+  border-color: #2fd1b3;
+}
+
+.cf-check[data-ok] i::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 5px;
+  height: 11px;
+  border: solid #2fd1b3;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.cf-check small {
+  margin-left: auto;
+  font-size: 11px;
+  color: rgba(242, 239, 232, 0.4);
+}
+
+.cf-widget:empty {
+  display: none;
+}
+
+.cf-widget {
+  margin: -12px 0 24px;
+}
+
+.cf-send {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  padding: 17px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cream);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--night);
+  cursor: pointer;
+}
+
+.cf-send i {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.cf-send:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.cf-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(242, 239, 232, 0.45);
+}
+
+.cf-status {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+}
+
+.cf-status b {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.cf-status span {
+  font-size: 14px;
+  color: rgba(242, 239, 232, 0.65);
+}
+
+.cf-status a {
+  color: var(--cream);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cf-status[data-kind="ok"] {
+  border: 1px solid rgba(47, 209, 179, 0.35);
+  background: rgba(47, 209, 179, 0.07);
+}
+
+.cf-status[data-kind="fail"] {
+  border: 1px solid rgba(255, 122, 92, 0.4);
+  background: rgba(255, 122, 92, 0.07);
+}
+
+.cf > .cf-status:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .cf {
+    padding: 22px;
+  }
+
+  /* The owner's decision: on phones the Send button spans the full form width. */
+  .cf-send {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 19px 24px;
+  }
+}

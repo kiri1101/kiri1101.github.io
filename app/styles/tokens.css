@@ -1,0 +1,46 @@
+/* Self-hosted fonts (OFL). Inter Tight: variable, latin subset, preloaded from root.tsx.
+   Instrument Serif: italic only, latin subset, intentionally not preloaded.
+   Relative URLs, so the build fingerprints the files (app/lib/assets.ts imports the same ones). */
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-tight-latin-wght-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2");
+}
+
+:root {
+  --ink: #101820;
+  --dim: #565b59;
+  --accent: #ff7a3d;
+  --cream: #f2efe8;
+  --night: #0b0b0e;
+  --space: #040406;
+  --warm: #ffb48c;
+
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --gutter: 40px;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+/* With JavaScript (data-defer, set by root.tsx) the serif face is requested only after the first paint
+   (data-late): its text is hidden or far below the first screen, and fetched earlier it competes with the poster.
+   Without JavaScript nothing waits. */
+:root[data-defer]:not([data-late]) {
+  --font-serif: serif;
+}

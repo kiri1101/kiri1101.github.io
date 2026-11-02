@@ -1,0 +1,383 @@
+/* UI kit for the illustrative screens (the compositions of projects whose real interfaces are not shown). One kit,
+   themed per project through --ac (accent), --ac-soft, --sb (sidebar), --bg and --ink. Everything here is dummy data. */
+.ui {
+  position: absolute;
+  inset: 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--ink, #16202a);
+  background: var(--bg, #f5f6f8);
+}
+
+.ui .sb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 232px;
+  padding: 24px 16px;
+  background: var(--sb, #17121c);
+  color: #fff;
+}
+
+.ui .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 8px 28px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ui .brand i {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--ac);
+}
+
+.ui .sb .nav {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 4px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.ui .sb .nav::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.ui .sb .nav.on {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.ui .sb .nav.on::before {
+  background: var(--ac);
+  opacity: 1;
+}
+
+.ui .sb .foot {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ui .main {
+  position: absolute;
+  left: 232px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 26px 32px;
+}
+
+.ui .full {
+  position: absolute;
+  inset: 0;
+  padding: 26px 40px;
+}
+
+.ui .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ui h2 {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ui h3 {
+  font-size: 16.5px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.ui .sub {
+  margin-top: 3px;
+  font-size: 14px;
+  color: rgba(22, 32, 42, 0.58);
+}
+
+.ui .grid {
+  display: grid;
+  gap: 18px;
+}
+
+.ui .panel {
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(22, 32, 42, 0.06), 0 10px 26px -16px rgba(22, 32, 42, 0.25);
+}
+
+.ui .kpi b {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.ui .kpi span {
+  font-size: 13.5px;
+  color: rgba(22, 32, 42, 0.58);
+}
+
+.ui .search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(22, 32, 42, 0.12);
+  color: rgba(22, 32, 42, 0.5);
+  font-size: 15px;
+}
+
+.ui .search::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+}
+
+.ui .btn-p {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--ac);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ui .btn-g {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(22, 32, 42, 0.16);
+  font-size: 14.5px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+.ui .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ui .badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ui .ok { background: #e0f4e8; color: #17703d; }
+.ui .warn { background: #fdf0d2; color: #8a5a07; }
+.ui .bad { background: #fbe1df; color: #a32a22; }
+.ui .info { background: #e3eafc; color: #2b4aa6; }
+.ui .idle { background: #eceef1; color: #5b6570; }
+
+.ui table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ui th {
+  padding: 0 14px 10px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(22, 32, 42, 0.5);
+}
+
+.ui td {
+  padding: 13px 14px;
+  border-top: 1px solid rgba(22, 32, 42, 0.07);
+  font-size: 14.5px;
+  white-space: nowrap;
+}
+
+.ui td.strong {
+  font-weight: 600;
+}
+
+.ui td.muted,
+.ui .muted {
+  color: rgba(22, 32, 42, 0.55);
+}
+
+.ui .lbl {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(22, 32, 42, 0.52);
+}
+
+.ui .input {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(22, 32, 42, 0.16);
+  font-size: 15px;
+}
+
+.ui .input.err {
+  box-shadow: 0 0 0 2px #d6493f;
+}
+
+.ui .errmsg {
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: #b3342b;
+}
+
+.ui .prog {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(22, 32, 42, 0.1);
+  overflow: hidden;
+}
+
+.ui .prog i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--ac);
+}
+
+.ui .av {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ac-soft, #e3e6ee);
+  color: var(--ac-ink, #1c2540);
+  font-size: 12.5px;
+  font-weight: 650;
+}
+
+.ui .tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.ui .tab {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 550;
+  color: rgba(22, 32, 42, 0.62);
+}
+
+.ui .tab.on {
+  background: var(--ac);
+  color: #fff;
+}
+
+.ui .ico {
+  display: inline-block;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--ac-soft, #e3e6ee);
+}
+
+.ui .toast {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(22, 32, 42, 0.06), 0 24px 44px -16px rgba(22, 32, 42, 0.45);
+}
+
+/* the phone-screen kit */
+.ui.m {
+  font-size: 14px;
+}
+
+.ui .photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(160deg, var(--p1, #d9c2a1), var(--p2, #b89874));
+}
+
+.ui .photo::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 0;
+  height: 46%;
+  background: rgba(255, 255, 255, 0.55);
+  clip-path: polygon(0 100%, 0 45%, 50% 0, 100% 45%, 100% 100%);
+}
+
+.ui .photo::before {
+  content: "";
+  position: absolute;
+  left: 41%;
+  width: 18%;
+  bottom: 0;
+  height: 24%;
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 1;
+}
+
+/* the "illustrative" ribbon is NOT drawn in the images: the case-study page carries the caption */

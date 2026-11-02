@@ -1,0 +1,47 @@
+{
+  "bornes-libre-service": {
+    "cover": "19997713ba48cc936c751b3dca42df80476e2937dc96dd582dca9e5617781cc1",
+    "avif": "0aa1f2ee40c58159388be3f46240d9f37f46ef3441e9ed1eb986cd2267635cca",
+    "webp": "7126cb28486f9f8d0c5ceb5813e2568ca85941e260f01441310556eb3380f746"
+  },
+  "conformite-bancaire": {
+    "cover": "27260fc8138096a89fcf741cae02d9e0ae936499e4786774c553ea7a333e4dd1",
+    "avif": "7641617d3767be4038cb1331fa5fef20204dc65abac699432eab9e7b1d70955c",
+    "webp": "cbfbd1479cfab2b22af56dad3a1ab061b5aea2bed74188683c8a70d71d83c4b8"
+  },
+  "drymhome": {
+    "cover": "39add1e9bbe4d5afd6e7e3f44437715f6ce7a2059ff37d1d3ba3cf550e3ea75f",
+    "avif": "3f979215d0d73b26b74dc32252c2e973cd09fd33f7500b269f24025ab94db942",
+    "webp": "9e31f7beb4ed2690fe22dd9d4d2ebc00d662175994dcbff18ffad12e543fa3cf"
+  },
+  "equip4safety": {
+    "cover": "99ab04176d9b6e08daa7f9c84e4d4df9b91146c252225f1eeb101b7014f260ba",
+    "avif": "1864bd80726aedf2ec8e64f7b31fd6a734a8e2f607c97c4c275ac3014e370e9f",
+    "webp": "25daad61a7a34a2155421716d86893092e4419c20b89f472b9dc500e18ec0c71"
+  },
+  "ministere-fonction-publique": {
+    "cover": "a22d90168a4b614b6f18a5ff8b181cac4288274bba269c962a78185291b1e045",
+    "avif": "a468304163d18d593b4565c9d5817c965100680accdf9832a585f0742373db0d",
+    "webp": "f8ab57215eede0b83fea199d4970109cf2f5c66dcb44443dfd9787ad4998889f"
+  },
+  "orbit-portfolio": {
+    "cover": "e6a41c30432fb3d17a9ac60e93fe99d434205cdfc4010943fd4c00ab13cea555",
+    "avif": "5e0646e043b56fe6dab085f30a4efb38ab5d7d23b9e63b50bbdda4dc431adee4",
+    "webp": "507c3db9d2536ff9821ed1b78a930800d74b28df4d35a4b7a4397f5f22fe1fb5"
+  },
+  "schulyf": {
+    "cover": "dfdba7df6561724b963bbbfb366dd814795d0cca9fbbe574f3a30022e3488c61",
+    "avif": "68939b79cc37c68964a4d36b75ea22aed34e177f743e1badbaf799144360f6dc",
+    "webp": "883f5bf796c2d33487022668c6eb09302153dcf34cf09bdda2061dc407b7bc49"
+  },
+  "services-publics": {
+    "cover": "507506bb1e193719337bf8cd2f195fcd464cebcac143fd41d05e5a859f8c6280",
+    "avif": "665b2bf8e3e067f7fc0eb816d53ad7451216a18115b7f991f60b62da5f9d7989",
+    "webp": "3fb391688e52b33eef16a01f6ee92b7e47cb399ce6e936883912b08ec2c3a808"
+  },
+  "tv-satellite": {
+    "cover": "57e38a7658c8b0f2ac819d1bea16a22498bfd7b74e03215137c31319a7dde960",
+    "avif": "d1256549c86b6a2ce5b1c2cefca7f84fcd559f94bf1dedef49b7365a45eb2b22",
+    "webp": "c7e3fd36df24916d7148cdc1c2e5aaf328c3226953828d438c104cca09f53ca0"
+  }
+}

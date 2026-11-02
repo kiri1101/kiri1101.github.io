@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>drymhome — illustrative screens</title>
+<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+  .dh { --from: #1a1410; --to: #3a2a1c; --ac: #e8742f; --ac-soft: #fbe6d6; --ac-ink: #8a3d0c; --sb: #2a1d12; --bg: #faf6f1; }
+  .dh .muted { color: rgba(22,32,42,.55); }
+  .dh .listing { border-radius: 16px; background: #fff; overflow: hidden; box-shadow: 0 0 0 1px rgba(22,32,42,.06), 0 10px 22px -14px rgba(22,32,42,.3); }
+  .dh .listing .photo { height: 150px; border-radius: 0; }
+  .dh .listing .meta { padding: 12px 14px 14px; }
+  .dh .listing b { display: block; font-size: 15.5px; }
+  .dh .listing span { font-size: 13px; color: rgba(22,32,42,.58); }
+  .dh .price { margin-top: 6px; font-size: 16px; font-weight: 700; color: var(--ac-ink); }
+  .dh .push { display: flex; gap: 12px; align-items: center; padding: 14px 18px; border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 26px 46px -16px rgba(0,0,0,.55); font-size: 14.5px; color: #16202a; }
+  .dh .msg { max-width: 78%; padding: 11px 14px; border-radius: 16px; font-size: 14px; }
+  .dh .msg.in { background: #fff; box-shadow: 0 0 0 1px rgba(22,32,42,.08); border-bottom-left-radius: 4px; }
+  .dh .msg.out { margin-left: auto; background: var(--ac); color: #fff; border-bottom-right-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- Illustrative screens (no real interface is shown): the tenant app on a phone, the agent back office, live updates. -->
+<section class="shot cover dh" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window" style="left:90px;top:200px;width:1050px;height:760px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>agents.rentals.example</b>/listings</span></div>
+    <div class="body"><div class="ui">
+      <div class="sb" style="width:200px"><div class="brand"><i></i>Rental platform</div>
+        <div class="nav on">Listings</div><div class="nav">Viewing requests</div><div class="nav">Tenants</div><div class="nav">Messages</div><div class="nav">Settings</div></div>
+      <div class="main" style="left:200px;padding:22px 26px">
+        <div class="top"><div><h2>Listings</h2><div class="sub">12 active · 3 awaiting photos</div></div><span class="btn-p">Add a listing</span></div>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:16px">
+          <div class="listing"><div class="photo" style="--p1:#d9c2a1;--p2:#b89874"></div><div class="meta"><b>2-bed apartment</b><span>City centre · 78 m²</span><div class="price">180 000 / month</div></div></div>
+          <div class="listing"><div class="photo" style="--p1:#c4d4c0;--p2:#92a98d"></div><div class="meta"><b>Studio near campus</b><span>University district · 28 m²</span><div class="price">65 000 / month</div></div></div>
+          <div class="listing"><div class="photo" style="--p1:#d3c6dc;--p2:#a392b4"></div><div class="meta"><b>Family house</b><span>Quiet suburb · 140 m²</span><div class="price">320 000 / month</div></div></div>
+          <div class="listing"><div class="photo" style="--p1:#c7d6e2;--p2:#8fa8bd"></div><div class="meta"><b>1-bed with balcony</b><span>Riverside · 52 m²</span><div class="price">120 000 / month</div></div></div>
+          <div class="listing"><div class="photo" style="--p1:#e4cdb5;--p2:#c39f78"></div><div class="meta"><b>Shared flat, 3 rooms</b><span>City centre · 95 m²</span><div class="price">90 000 / room</div></div></div>
+          <div class="listing"><div class="photo" style="--p1:#cfd9b8;--p2:#9db07c"></div><div class="meta"><b>Garden maisonette</b><span>Green quarter · 110 m²</span><div class="price">240 000 / month</div></div></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <div style="left:1060px;top:90px;transform:scale(1.15);transform-origin:0 0">
+    <div class="phone"><div class="screen" style="background:#faf6f1">
+      <div class="status"><span>9:41</span><span class="sig"><i></i><i></i><i></i><i></i><span class="bat"></span></span></div>
+      <div class="ui m" style="--bg:transparent;padding:56px 18px 0;background:transparent">
+        <div class="eyebrow muted">Find a home</div><h3 style="font-size:22px;margin-top:4px">2-bed apartment</h3>
+        <div class="photo" style="height:200px;margin-top:14px;--p1:#d9c2a1;--p2:#b89874"></div>
+        <div class="between" style="margin-top:14px"><div class="price" style="margin:0;font-size:20px">180 000 / month</div><span class="badge ok">Available</span></div>
+        <div class="row" style="gap:8px;margin-top:12px"><span class="pill" style="background:#fff;box-shadow:0 0 0 1px rgba(22,32,42,.12)">2 beds</span><span class="pill" style="background:#fff;box-shadow:0 0 0 1px rgba(22,32,42,.12)">78 m²</span><span class="pill" style="background:#fff;box-shadow:0 0 0 1px rgba(22,32,42,.12)">Lift</span></div>
+        <div class="row" style="gap:12px;margin-top:16px"><span class="av">AG</span><div><b>Sample Agency</b><div class="muted" style="font-size:13px">Replies within the hour</div></div></div>
+        <div class="btn-p" style="width:100%;height:50px;margin-top:18px;border-radius:14px">Request a viewing</div>
+      </div>
+      <div class="home-bar"></div>
+    </div></div>
+  </div>
+  <div class="push" style="left:560px;top:1010px"><span class="ico" style="background:#fbe6d6"></span><div><b>Viewing confirmed</b><div class="muted" style="font-size:13px">Saturday 10:30 · 2-bed apartment</div></div></div>
+</section>
+
+<section class="shot portrait dh" data-shot="cover-phone" data-reframe="cover" data-frame="830,600,1.15"></section>
+
+<section class="shot dh" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome" style="left:110px;top:90px;width:1010px;height:820px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>agents.rentals.example</b>/viewings</span></div>
+    <div class="body"><div class="ui">
+      <div class="sb" style="width:200px"><div class="brand"><i></i>Rental platform</div>
+        <div class="nav">Listings</div><div class="nav on">Viewing requests</div><div class="nav">Tenants</div><div class="nav">Messages</div><div class="nav">Settings</div></div>
+      <div class="main" style="left:200px;padding:22px 26px">
+        <div class="top"><div><h2>Viewing requests</h2><div class="sub">Updated live: no refresh needed</div></div><span class="badge ok">Live</span></div>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px">
+          <div class="panel kpi"><b>9</b><span>New today</span></div><div class="panel kpi"><b>5</b><span>Confirmed</span></div><div class="panel kpi"><b>2</b><span>To reschedule</span></div>
+        </div>
+        <div class="panel" style="padding:16px 6px 4px"><table>
+          <tr><th>Tenant</th><th>Listing</th><th>Requested</th><th>Status</th></tr>
+          <tr><td class="strong">Tenant A. Sample</td><td>2-bed apartment</td><td class="muted">Sat 10:30</td><td><span class="badge info">New</span></td></tr>
+          <tr><td class="strong">Tenant B. Demo</td><td>Studio near campus</td><td class="muted">Sat 11:15</td><td><span class="badge ok">Confirmed</span></td></tr>
+          <tr><td class="strong">Tenant C. Example</td><td>Family house</td><td class="muted">Sun 09:00</td><td><span class="badge warn">Reschedule</span></td></tr>
+          <tr><td class="strong">Tenant D. Sample</td><td>1-bed with balcony</td><td class="muted">Sun 14:00</td><td><span class="badge ok">Confirmed</span></td></tr>
+          <tr><td class="strong">Tenant E. Demo</td><td>Shared flat</td><td class="muted">Mon 17:30</td><td><span class="badge info">New</span></td></tr>
+        </table></div>
+      </div>
+    </div></div>
+  </div>
+  <div style="left:1190px;top:110px;transform:scale(1.0);transform-origin:0 0">
+    <div class="phone"><div class="screen" style="background:#faf6f1">
+      <div class="status"><span>9:41</span><span class="sig"><i></i><i></i><i></i><i></i><span class="bat"></span></span></div>
+      <div class="ui m" style="padding:56px 16px 0;background:transparent">
+        <div class="row" style="gap:10px"><span class="av">AG</span><div><b>Sample Agency</b><div class="muted" style="font-size:12.5px">Online</div></div></div>
+        <div class="col" style="gap:10px;margin-top:20px">
+          <div class="msg in">Hello, is the apartment still available?</div>
+          <div class="msg out">Yes. A viewing is possible on Saturday at 10:30.</div>
+          <div class="msg in">Perfect, I will be there.</div>
+          <div class="msg out">Confirmed. You will get a reminder.</div>
+        </div>
+        <div class="push" style="margin-top:22px;padding:12px 14px"><span class="ico" style="background:#fbe6d6;width:32px;height:32px"></span><div><b>Viewing confirmed</b><div class="muted" style="font-size:12.5px">Saturday 10:30</div></div></div>
+      </div>
+      <div class="home-bar"></div>
+    </div></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

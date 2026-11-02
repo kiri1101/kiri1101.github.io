@@ -2,48 +2,30 @@ name: CI
 
 on:
   push:
-    branches: [main, redesign]
+    branches: [main]
   pull_request:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      # Build in Cloudflare Pages' environment so a preset regression (output in dist/) fails the build tests
-      - name: Generate as Cloudflare Pages would
-        run: npm run generate
-        env:
-          CF_PAGES: '1'
-      - run: npm run test:build
-      - if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
+      - run: npm run build
+      - run: npm run check:bundle
+      - run: npx playwright install --with-deps
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v7
+        if: failure()
         with:
-          path: .output/public
-
-  deploy-mirror:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          name: playwright-report
+          path: playwright-report/
