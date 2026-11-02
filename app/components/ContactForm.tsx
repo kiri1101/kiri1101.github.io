@@ -68,7 +68,6 @@ export function ContactForm() {
   const waiter = useRef<((t: string | null) => void) | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [wanted, setWanted] = useState(false);
-  const [verified, setVerified] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Partial<Record<Fields, ErrorCode>>>({});
@@ -76,7 +75,6 @@ export function ContactForm() {
 
   const setToken = useCallback((t: string | null) => {
     token.current = t;
-    setVerified(t !== null);
     if (t) {
       waiter.current?.(t);
       waiter.current = null;
@@ -104,7 +102,7 @@ export function ContactForm() {
         widgetId.current = api.render(widgetRef.current, {
           sitekey: rawSite.contact.turnstileSiteKey,
           theme: "dark",
-          appearance: "interaction-only",
+          size: "flexible", // the real widget, always shown and as wide as the form; no look-alike checkbox of ours
           callback: (t: string) => {
             setBlocked(false); // a retry that works clears an earlier widget error
             setToken(t);
@@ -228,11 +226,6 @@ export function ContactForm() {
               </div>
             );
           })}
-          <div className="cf-check" data-ok={verified ? "" : undefined}>
-            <i aria-hidden="true" />
-            <span>{verified ? u.verified : u.protected}</span>
-            <small>Cloudflare Turnstile</small>
-          </div>
           <div className="cf-widget" ref={widgetRef} />
           <button className="cf-send" type="submit" disabled={status === "sending"} aria-busy={status === "sending"}>
             {status === "sending" ? u.sending : u.send} <i aria-hidden="true">↗</i>
