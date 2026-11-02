@@ -8,7 +8,8 @@ import { scrollForProject } from "../../app/lib/timeline";
 import { COUNT } from "./projects";
 import {
   canDrawScene,
-  canTransfer,
+  canRenderInWorker,
+  NO_WORKER_GL_REASON,
   canvasInk,
   consoleErrors,
   expect,
@@ -94,7 +95,8 @@ test.describe("tier 2: the still poster and the list view", () => {
     // - Chromium: --disable-3d-apis takes WebGL from <canvas> elements only, and OffscreenCanvas (so a worker) keeps
     //   it, so the GPU and its software fallback are switched off too;
     // - Firefox: webgl.disabled, which covers OffscreenCanvas and workers;
-    // - Playwright's WebKit on Windows cannot draw the scene at all (no OffscreenCanvas), so it runs as it is.
+    // - Playwright's WebKit on Windows cannot draw the scene at all (no OffscreenCanvas), so it runs as it is; on Linux
+    //   it has WebGL and cannot be launched without it, so the test skips.
     const browser = await playwright[browserName].launch(
       browserName === "chromium"
         ? { args: ["--disable-3d-apis", "--disable-gpu", "--disable-software-rasterizer"] }
@@ -113,8 +115,9 @@ test.describe("tier 2: the still poster and the list view", () => {
         element: !!document.createElement("canvas").getContext("webgl2"),
         offscreen: typeof OffscreenCanvas !== "undefined" && !!new OffscreenCanvas(1, 1).getContext("webgl2"),
       }));
-      if (browserName === "webkit") expect(webgl.offscreen).toBe(false);
-      else expect(webgl).toEqual({ element: false, offscreen: false });
+      // Playwright's WebKit has no switch for turning WebGL off: Windows has none to begin with, Linux always has it.
+      test.skip(browserName === "webkit" && (webgl.element || webgl.offscreen), "this WebKit build cannot be launched without WebGL");
+      expect(webgl).toEqual({ element: false, offscreen: false });
       // A worker may start and find no WebGL; three.js is never downloaded.
       await expectStillPage(page, errors, requested.chunks);
     } finally {
@@ -133,7 +136,7 @@ test.describe("where the scene renders", () => {
   test("in a worker, where the browser can hand it the canvas: three.js never runs on the main thread", async ({
     page,
   }) => {
-    test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
     const errors = consoleErrors(page);
     const worker = page.waitForEvent("worker", { predicate: (w) => WORKER_SCRIPT.test(w.url()), ...SETTLE });
     await page.goto("/en");
@@ -159,7 +162,7 @@ test.describe("where the scene renders", () => {
 
   test("on the main thread when the worker's script cannot load", async ({ page, browserName }) => {
     test.skip(browserName !== "chromium", "the worker's failure path is exercised in Chromium");
-    test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
     const errors = consoleErrors(page, WORKER_SCRIPT);
     let refused = 0;
     await page.route(WORKER_SCRIPT, (route) => {
@@ -177,7 +180,7 @@ test.describe("where the scene renders", () => {
   test("on the main thread when the worker gets no WebGL 2 context: it asks before the canvas is transferred", async ({
     page,
   }) => {
-    test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
     await workerPrelude(page, () => {
       const original = OffscreenCanvas.prototype.getContext;
       OffscreenCanvas.prototype.getContext = function (this: OffscreenCanvas, type: string, ...rest: unknown[]) {
@@ -201,7 +204,8 @@ test.describe("the monogram's face in the worker (Ruling R27)", () => {
   test.beforeEach(async ({ page }) => {
     await allowSoftwareGL(page);
     await page.goto("about:blank");
-    test.skip(!(await canDrawScene(page)) || !(await canTransfer(page)), "no worker rendering in this browser");
+    test.skip(!(await canDrawScene(page)), NO_SCENE_REASON);
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
   });
 
   type Posted = { type: string; glyphs?: { width: number; height: number } };
@@ -287,7 +291,7 @@ function slowFrames(ms: number) {
 /** Slows the frames of the thread that draws the scene in `mode`. */
 async function slowSceneFrames(page: Page, mode: Mode, ms: number) {
   if (mode === "worker") {
-    test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
     await workerPrelude(page, slowFrames, ms);
   } else {
     await mainThreadOnly(page);
@@ -350,7 +354,7 @@ test.describe("adaptive quality", () => {
       await page.addInitScript(() => {
         window.__orbitFrames = { frameMs: 60 };
       });
-      if (mode === "worker") test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+      if (mode === "worker") test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
       else await mainThreadOnly(page);
       const tiers = await recordTiers(page);
       const errors = consoleErrors(page);
@@ -374,7 +378,7 @@ test.describe("adaptive quality", () => {
   }) => {
     // Firefox draws this scene from a worker at 60 fps here, so only the page's frames are slow and the test tells
     // the two apart; Chromium's software WebGL makes the worker slow as well.
-    test.skip(!(await canTransfer(page)), "this browser cannot transfer a canvas to a worker");
+    test.skip(!(await canRenderInWorker(page)), NO_WORKER_GL_REASON);
     await page.addInitScript(slowFrames, 30);
     const errors = consoleErrors(page);
     const worker = page.waitForEvent("worker", { predicate: (w) => WORKER_SCRIPT.test(w.url()), ...SETTLE });

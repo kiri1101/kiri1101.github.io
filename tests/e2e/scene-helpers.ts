@@ -53,6 +53,33 @@ export const canDrawScene = (page: Page) =>
 export const canTransfer = (page: Page) =>
   page.evaluate(() => typeof HTMLCanvasElement.prototype.transferControlToOffscreen === "function");
 
+/**
+ * Whether a worker gets WebGL 2 on an OffscreenCanvas. Where it does not (Playwright's WebKit on Linux has it on the
+ * page but not in workers), the page falls back to the main thread (Ruling R27), so tests about the worker cannot run.
+ */
+export const workerHasWebGL = (page: Page) =>
+  page.evaluate(async () => {
+    const src = "postMessage(typeof OffscreenCanvas !== 'undefined' && !!new OffscreenCanvas(1, 1).getContext('webgl2'))";
+    const url = URL.createObjectURL(new Blob([src], { type: "text/javascript" }));
+    const worker = new Worker(url);
+    try {
+      return await new Promise<boolean>((resolve) => {
+        worker.onmessage = (e) => resolve(e.data === true);
+        worker.onerror = () => resolve(false);
+        setTimeout(() => resolve(false), 5000);
+      });
+    } finally {
+      worker.terminate();
+      URL.revokeObjectURL(url);
+    }
+  });
+
+/** Whether the page can render the scene in a worker here: a transferable canvas, and WebGL 2 inside the worker. */
+export const canRenderInWorker = async (page: Page) => (await canTransfer(page)) && (await workerHasWebGL(page));
+
+export const NO_WORKER_GL_REASON =
+  "this browser gives a worker no WebGL 2 on an OffscreenCanvas (WebKit on Linux), so the page renders on the main thread";
+
 export const NO_SCENE_REASON =
   "this browser build cannot draw the scene (Playwright's Windows WebKit has no OffscreenCanvas; " +
   "Safari has had it since 16.4), so the page keeps the poster; the fallback tests cover it";
