@@ -52,7 +52,6 @@ test("a good message shows sending, posts the Turnstile token, then the success 
   await page.goto("/en#contact");
   await fill(page);
   const send = page.getByRole("button", { name: /send/i });
-  await expect(page.getByText("Verified you're human")).toBeVisible();
   await send.click();
   await expect(page.getByRole("button", { name: /sending/i })).toBeDisabled();
   await expect(page.getByText("Message sent. Thank you, Amara.")).toBeVisible();
@@ -102,9 +101,18 @@ test("a retry that passes after a widget error clears the failure alert", async 
   await page.unroute("https://challenges.cloudflare.com/**");
   const flaky = "window.turnstile={render:function(el,o){setTimeout(function(){o[\"error-callback\"]()},50);setTimeout(function(){o.callback(\"tok\")},2500);return \"w1\"},reset:function(){},remove:function(){}};";
   await page.route("https://challenges.cloudflare.com/**", (r) => r.fulfill({ contentType: "text/javascript", body: flaky }));
+  let body: Record<string, string> = {};
+  await page.route("**/api/contact", async (r) => {
+    body = r.request().postDataJSON();
+    await r.fulfill({ status: 200, json: { ok: true } });
+  });
   await page.goto("/en#contact");
   await page.locator("#contact").scrollIntoViewIfNeeded();
   await expect(page.getByRole("alert")).toBeVisible();
   await expect(page.getByRole("alert")).toBeHidden();
-  await expect(page.getByText("Verified you're human")).toBeVisible();
+  // The retry's token is the one the form posts: the widget passing is shown by Cloudflare's own widget, not by text of ours.
+  await fill(page);
+  await page.getByRole("button", { name: /send message/i }).click();
+  await expect(page.getByText("Message sent. Thank you, Amara.")).toBeVisible();
+  expect(body).toMatchObject({ token: "tok" });
 });
