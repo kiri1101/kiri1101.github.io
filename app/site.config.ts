@@ -191,8 +191,8 @@ export const site = {
   hero: {
     headline: [bi("Développeur Full Stack", "Full Stack Developer"), bi("Web & Mobile", "Web & Mobile")],
     sub: bi(
-      "Lead Développeur Full Stack chez ADWA SARL. Basé à Douala, Cameroun.",
-      "Lead Full Stack Developer at ADWA SARL. Based in Douala, Cameroon.",
+      "Développeur Full Stack. Basé à Douala, Cameroun.",
+      "Full Stack Developer. Based in Douala, Cameroon.",
     ),
     aside: {
       lead: bi(

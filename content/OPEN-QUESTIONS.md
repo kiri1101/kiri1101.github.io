@@ -37,7 +37,7 @@ The whole write-up is mine, from the Orbit spec and the measured results in the 
 
 - The monogram on the orb and the About portrait is "JT" (first two initials of "Jordan Tukum Folem").
 - "Years of experience" is computed from the earliest role (2020, FORAMA and HYDRAC), so it reads 6 years in 2026, while the old site’s card says "5+". Which do you prefer?
-- The hero sub-line (“Lead Full Stack Developer at ADWA SARL. Based in Douala, Cameroon.”) is composed by me from the profile’s current role and location.
+- RESOLVED (owner, 2026-11-02): the hero sub-line is “Full Stack Developer. Based in Douala, Cameroon.” / « Développeur Full Stack. Basé à Douala, Cameroun. », with no employer or seniority, so it never needs updating when the job changes.
 - The contact placeholders (“Que construisez-vous, et où êtes-vous bloqué ?”, “Votre nom”, “vous@entreprise.com”) and the lead (“Parlez-moi du problème…”) are Orbit’s form copy, translated; confirm.
 - The “5+” years card now shows the computed value (“6+” in 2026); the “10” sectors card is the length of the sector list. Keep “5+” instead?
 - The hero pills are the first three sectors and a "+".
