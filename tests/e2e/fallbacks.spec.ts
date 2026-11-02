@@ -299,6 +299,15 @@ async function slowSceneFrames(page: Page, mode: Mode, ms: number) {
   }
 }
 
+/**
+ * WebKit on Linux draws the scene in software at whatever size it is given, and a 1440x900 viewport at a device pixel
+ * ratio of 2 makes frames slower than the governor's sampling limit on a busy runner, so it never gets a stats window
+ * to judge. These tests are about the governor's rules, not the pixel count: a smaller page gives it frames to judge.
+ */
+async function smallPageInWebKit(page: Page, browserName: string, isMobile: boolean) {
+  if (browserName === "webkit" && !isMobile) await page.setViewportSize({ width: 720, height: 450 });
+}
+
 /** Every value `#scene[data-tier]` takes, in order, from before the page's scripts run. */
 async function recordTiers(page: Page) {
   await page.addInitScript(() => {
@@ -320,7 +329,8 @@ test.describe("adaptive quality", () => {
   });
 
   for (const mode of MODES) {
-    test(`slow frames step the scene down to tier 1, once, and it stays live (${mode})`, async ({ page }) => {
+    test(`slow frames step the scene down to tier 1, once, and it stays live (${mode})`, async ({ page, browserName, isMobile }) => {
+      await smallPageInWebKit(page, browserName, isMobile);
       await slowSceneFrames(page, mode, 30);
       const tiers = await recordTiers(page);
       const errors = consoleErrors(page);
@@ -348,7 +358,10 @@ test.describe("adaptive quality", () => {
 
     test(`too slow even at tier 1 in the hero at start-up: the poster and the list, for good (Ruling R29, ${mode})`, async ({
       page,
+      browserName,
+      isMobile,
     }) => {
+      await smallPageInWebKit(page, browserName, isMobile);
       // The governor is told the frame times (and its clock runs on), so the outcome does not depend on how busy the
       // machine is; the rules themselves are the product's. The slow-frame tests above run the real thing.
       await page.addInitScript(() => {
