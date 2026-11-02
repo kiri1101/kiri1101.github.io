@@ -191,6 +191,9 @@ export function useScene(cards: CardInput[], centre: RefObject<SceneCore | null>
       stopSampling();
       life.stop();
       unmountScene(canvas);
+      // A main-thread scene's context goes now: its cleared last frame is not always presented (Linux WebKit keeps
+      // showing the orb over the poster), and a lost context always shows an empty canvas.
+      releaseCanvas(canvas);
       handle.current = null;
       centre.current = null;
       showTier(2);
