@@ -33,7 +33,7 @@ for (const size of [
     test("every title scrolls into view and is the topmost thing at its centre; the first is clear of the switch", async ({ page }) => {
       await openList(page);
       const links = page.locator("#project-list a");
-      await expect(links).toHaveCount(9);
+      await expect(links).toHaveCount(11);
       for (let i = 0; i < 9; i++) {
         const link = links.nth(i);
         await link.scrollIntoViewIfNeeded();
@@ -63,7 +63,7 @@ test.describe("the closed list", () => {
     await page.goto("/en");
     const list = page.locator("#list");
     await expect(list).not.toHaveClass(/\bon\b/);
-    await expect(list.getByRole("link")).toHaveCount(9);
+    await expect(list.getByRole("link")).toHaveCount(11);
     await expect(list.getByRole("link").first()).toHaveAttribute("tabindex", "-1");
 
     // Tab through the page: focus never lands in the closed list.

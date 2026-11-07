@@ -684,7 +684,7 @@ for (const lang of ["fr", "en"] as const) {
     .sort((a, b) => a.order - b.order);
 
   test.describe(`all ${own.length} case studies in ${lang}`, () => {
-    test("there are nine", () => expect(own).toHaveLength(9));
+    test("there are eleven", () => expect(own).toHaveLength(11));
 
     for (const [i, d] of own.entries()) {
       const path = lang === "fr" ? `/projets/${d.slug}` : `/en/projects/${d.slug}`;

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>github-profile-cards — the live cards</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  .gc { --from: #0a1220; --to: #16386b; }
+  .gc .body img { position: absolute; display: block; }
+  .gc .night .body { background: #0d1117; }
+  .gc .day .body { background: #fff; }
+</style>
+</head>
+<body>
+
+<!-- The cards are the real SVGs served by the live Worker (saved in scripts/mockups/assets/github-profile-cards/).
+     They show totals only, the same numbers that are public on the GitHub profile. -->
+<section class="shot cover gc" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome night" style="left:70px;top:110px;width:1130px;height:760px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>github-profile-cards.jtukum.workers.dev</b></span></div>
+    <div class="body"><img src="assets/github-profile-cards/stats-dark.svg" alt="" style="left:65px;top:60px;width:1000px;height:586px"></div>
+  </div>
+  <div class="window day" style="left:800px;top:620px;width:730px;height:470px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url" style="width:330px"><b>langs-light.svg</b></span></div>
+    <div class="body"><img src="assets/github-profile-cards/langs-light.svg" alt="" style="left:45px;top:36px;width:640px;height:352px"></div>
+  </div>
+</section>
+
+<section class="shot portrait gc" data-shot="cover-phone" data-reframe="cover" data-frame="800,600,1.05"></section>
+
+<section class="shot gc" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window day" style="left:60px;top:80px;width:830px;height:590px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url" style="width:330px"><b>stats-light.svg</b></span></div>
+    <div class="body"><img src="assets/github-profile-cards/stats-light.svg" alt="" style="left:50px;top:50px;width:730px;height:428px"></div>
+  </div>
+  <div class="window dark-chrome night" style="left:710px;top:340px;width:830px;height:590px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url" style="width:330px"><b>stats-dark.svg</b></span></div>
+    <div class="body"><img src="assets/github-profile-cards/stats-dark.svg" alt="" style="left:50px;top:50px;width:730px;height:428px"></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

@@ -148,13 +148,15 @@ describe("loadProjects", () => {
     "schulyf",
     "drymhome",
     "orbit-portfolio",
+    "create-nuxt-primevue",
+    "github-profile-cards",
   ];
 
-  test.each(["fr", "en"] as const)("all 9 projects parse in %s, slugs unique, order 1..9", (locale) => {
+  test.each(["fr", "en"] as const)("all 11 projects parse in %s, slugs unique, order 1..11", (locale) => {
     const projects = loadProjects(locale);
     expect(projects.map((p) => p.slug)).toEqual(SLUGS);
-    expect(new Set(projects.map((p) => p.slug)).size).toBe(9);
-    expect(projects.map((p) => p.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(new Set(projects.map((p) => p.slug)).size).toBe(11);
+    expect(projects.map((p) => p.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
   });
 
   test("slugs, order, years and image files match across the two languages, and the words differ", () => {
@@ -169,8 +171,8 @@ describe("loadProjects", () => {
   });
 
   test("counts and year ranges are computed from the files, in both languages", () => {
-    expect(collectionSummary(loadProjects("en"), "en")).toBe("Nine projects, 2023 – 2026");
-    expect(collectionSummary(loadProjects("fr"), "fr")).toBe("Neuf projets, 2023 – 2026");
+    expect(collectionSummary(loadProjects("en"), "en")).toBe("Eleven projects, 2023 – 2026");
+    expect(collectionSummary(loadProjects("fr"), "fr")).toBe("Onze projets, 2023 – 2026");
     // The year is the period’s first year (e.g. “déc. 2025 — 2026” is 2025).
     const years = Object.fromEntries(loadProjects("fr").map((p) => [p.slug, p.year]));
     expect(years).toMatchObject({ "services-publics": 2023, "conformite-bancaire": 2025, "tv-satellite": 2024, schulyf: 2026, "orbit-portfolio": 2026 });
