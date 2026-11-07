@@ -42,7 +42,7 @@ architecture:
   - label: "Métier"
     description: "Classes Action à responsabilité unique · middlewares d’authentification, de journalisation et de contrôle des téléversements"
   - label: "Services"
-    description: "Paiement en ligne et bancaire · stockage des pièces · notifications temps réel"
+    description: "Paiement en ligne et bancaire · stockage des pièces · notifications temps réel (Node.js / Express, Socket.IO, RabbitMQ)"
 keyDecision: "Isoler la logique métier dans des classes Action plutôt que dans les contrôleurs, pour la tester et la réutiliser entre les parcours."
 links:
   - label: "services-publics.cm"

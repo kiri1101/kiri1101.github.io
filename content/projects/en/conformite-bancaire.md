@@ -57,6 +57,8 @@ Lead developer of the Nuxt 4 front end, built as a Backend-for-Frontend: Nuxt se
 
 Dynamic forms validated with Zod, document uploads, bilingual interface.
 
+Real-time notifications in production: a Node.js / Express service, Socket.IO to clients and RabbitMQ event queues between servers.
+
 Set up the Vitest suite and type checking as a gate on every change.
 
 ## The result
