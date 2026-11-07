@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>create-nuxt-primevue — the generated page and the tool's real output</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  .cn { --from: #06130e; --to: #0f4634; }
+  .cn .body img { position: absolute; display: block; left: 0; top: 0; }
+  .cn .term .titlebar .path { margin-left: 22px; font-size: 15px; color: #9aa3ab; }
+  .cn .term .body { background: #0e1513; color: #e6ece9; padding: 26px 30px; font-family: Consolas, "Cascadia Mono", monospace; line-height: 1.55; white-space: pre; }
+  .cn .term .cmd i { font-style: normal; color: #34d399; }
+  .cn .term .bad { color: #f87171; }
+  .cn .term .ok { color: #34d399; }
+  .cn .term .dim { color: #93a39d; }
+</style>
+</head>
+<body>
+
+<!-- The page is a real capture of a generated project (the tool's docs/proof-page.png). The terminal text is the tool's
+     real output, copied from a run against the npm registry, with only the project name changed. -->
+<section class="shot cover cn" data-shot="cover">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window" style="left:70px;top:110px;width:1210px;height:854px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="url"><b>localhost:3000</b></span></div>
+    <div class="body"><img src="assets/create-nuxt-primevue/proof-page.webp" alt="" style="width:1210px;height:808px"></div>
+  </div>
+  <div class="window dark-chrome term" style="left:770px;top:650px;width:760px;height:405px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="path">~/projects</span></div>
+    <div class="body" style="font-size:25px"><div class="cmd"><i>$</i> npm create nuxt-primevue@latest my-app</div><div><span class="ok">✓</span> Prime packages pinned to free MIT versions</div><div class="dim">Installing with npm...</div><div><span class="ok">✓</span> Git repository created with one initial commit</div><div>&nbsp;</div><div>Next steps:</div><div class="dim">  cd my-app</div><div class="dim">  npm run dev</div></div>
+  </div>
+</section>
+
+<section class="shot portrait cn" data-shot="cover-phone" data-reframe="cover" data-frame="800,590,1.05"></section>
+
+<!-- Both terminals are the tool's real output: doctor on a version 5 project, then on a generated project. -->
+<section class="shot cn" data-shot="section-1">
+  <div class="orbits"><i style="width:1500px;height:520px"></i><i style="width:1100px;height:380px"></i></div>
+  <div class="window dark-chrome term" style="left:70px;top:150px;width:1190px;height:285px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="path">~/client-app</span></div>
+    <div class="body" style="font-size:26px"><div class="cmd"><i>$</i> npx create-nuxt-primevue doctor --check</div><div><span class="bad">✗</span> @primeuix/themes 3.1.0  <span class="dim">licence: "SEE LICENSE IN LICENSE.md"</span>  <span class="bad">(not MIT)</span></div><div><span class="bad">✗</span> primeicons 8.0.2  <span class="dim">licence: "SEE LICENSE IN LICENSE.md"</span>  <span class="bad">(not MIT)</span></div><div><span class="bad">✗</span> primevue 5.0.4  <span class="dim">licence: "SEE LICENSE IN LICENSE.md"</span>  <span class="bad">(not MIT)</span></div></div>
+  </div>
+  <div class="window dark-chrome term" style="left:430px;top:540px;width:1100px;height:285px">
+    <div class="titlebar"><i></i><i></i><i></i><span class="path">~/my-app</span></div>
+    <div class="body" style="font-size:26px"><div class="cmd"><i>$</i> npx create-nuxt-primevue doctor --check</div><div><span class="ok">✓</span> 13 Prime package(s) installed, all on the MIT licence.</div><div class="cmd"><i>$</i> npm run build</div><div>Licence check passed: 13 Prime package(s), all MIT.</div></div>
+  </div>
+</section>
+
+<script src="kit.js"></script>
+</body>
+</html>

@@ -9,6 +9,11 @@
     "avif": "7641617d3767be4038cb1331fa5fef20204dc65abac699432eab9e7b1d70955c",
     "webp": "cbfbd1479cfab2b22af56dad3a1ab061b5aea2bed74188683c8a70d71d83c4b8"
   },
+  "create-nuxt-primevue": {
+    "cover": "c8ba568f0fc36beb44328469e985c3f3c3e9eb307dc82de81776accd079bd4aa",
+    "avif": "853e06cdae4e35f38510262c7cea0cb81356ca90fcffce4d7b7131b59ebedec4",
+    "webp": "705b31ea46624ace20d7c43a72c0bc13b39ba32430d57b548acc1af7a50d97f7"
+  },
   "drymhome": {
     "cover": "39add1e9bbe4d5afd6e7e3f44437715f6ce7a2059ff37d1d3ba3cf550e3ea75f",
     "avif": "3f979215d0d73b26b74dc32252c2e973cd09fd33f7500b269f24025ab94db942",
@@ -18,6 +23,11 @@
     "cover": "99ab04176d9b6e08daa7f9c84e4d4df9b91146c252225f1eeb101b7014f260ba",
     "avif": "1864bd80726aedf2ec8e64f7b31fd6a734a8e2f607c97c4c275ac3014e370e9f",
     "webp": "25daad61a7a34a2155421716d86893092e4419c20b89f472b9dc500e18ec0c71"
+  },
+  "github-profile-cards": {
+    "cover": "ee1ea53b49b5f734034610fb680962ce4a9e913c7f34038def17385e2e4731a8",
+    "avif": "6b2840664a07936ed48462a9214829b33f30827929845828758dd123d56aa149",
+    "webp": "54ed336d3358542928ed2eea2a98f9ad420bc85ddccff38ec44a7a95cc003668"
   },
   "ministere-fonction-publique": {
     "cover": "a22d90168a4b614b6f18a5ff8b181cac4288274bba269c962a78185291b1e045",

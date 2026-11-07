@@ -8,14 +8,14 @@ test.afterEach(expectSceneOff);
 
 test("every project is a real link with a heading", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.locator('#project-list a[href^="/en/projects/"]')).toHaveCount(9);
-  await expect(page.getByText("Nine projects, 2023 – 2026")).toBeAttached();
+  await expect(page.locator('#project-list a[href^="/en/projects/"]')).toHaveCount(11);
+  await expect(page.getByText("Eleven projects, 2023 – 2026")).toBeAttached();
 });
 
 test("the French home counts its projects and states the real profile", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator('#project-list a[href^="/projets/"]')).toHaveCount(9);
-  await expect(page.getByText("Neuf projets, 2023 – 2026")).toBeAttached();
+  await expect(page.locator('#project-list a[href^="/projets/"]')).toHaveCount(11);
+  await expect(page.getByText("Onze projets, 2023 – 2026")).toBeAttached();
   await expect(page.locator("h1")).toHaveText(/Développeur Full Stack/);
   await expect(page.locator(".facts")).toContainText("Douala, Cameroun");
   // The years of experience are computed from the earliest role (2020) and the build year, not typed.
@@ -133,7 +133,7 @@ test.describe("without JavaScript", () => {
   test("the page is prerendered into the static HTML", async ({ page }) => {
     await page.goto("/en");
     await expect(page.locator("h1")).toHaveText(/Full Stack Developer/);
-    await expect(page.locator('#project-list a[href^="/en/projects/"]')).toHaveCount(9);
+    await expect(page.locator('#project-list a[href^="/en/projects/"]')).toHaveCount(11);
   });
 
   test("nothing waits for a first paint that no script observes: space and the serif face load with the page", async ({

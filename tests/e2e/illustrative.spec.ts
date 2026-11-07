@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 /** The projects whose images are illustrative mock-ups (decision D5): every figure on their page carries the caption. */
 const ILLUSTRATIVE = ["ministere-fonction-publique", "conformite-bancaire", "tv-satellite", "schulyf", "drymhome"];
-const NOT = ["services-publics", "bornes-libre-service", "equip4safety", "orbit-portfolio"];
+const NOT = ["services-publics", "bornes-libre-service", "equip4safety", "orbit-portfolio", "create-nuxt-primevue", "github-profile-cards"];
 
 const LOCALES = [
   { path: (slug: string) => `/projets/${slug}`, label: "Maquette illustrative", alt: /^Maquette illustrative/ },
