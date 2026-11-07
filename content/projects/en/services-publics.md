@@ -42,7 +42,7 @@ architecture:
   - label: "Business logic"
     description: "Single-responsibility Action classes · middleware for authentication, logging and upload checks"
   - label: "Services"
-    description: "Online and bank payment · document storage · real-time notifications"
+    description: "Online and bank payment · document storage · real-time notifications (Node.js / Express, Socket.IO, RabbitMQ)"
 keyDecision: "Keep business logic in Action classes rather than controllers, so it can be tested and reused across user journeys."
 links:
   - label: "services-publics.cm"

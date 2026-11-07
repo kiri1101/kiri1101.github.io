@@ -60,9 +60,9 @@ const education = [
     notes: [bi("GPA 3,27/4", "GPA 3.27/4"), bi("60/60 crédits", "60/60 credits"), bi("diplôme en cours de délivrance", "degree being issued")],
   },
   {
-    year: "2020",
-    title: bi("BTech Génie Électrique & Électronique", "BTech in Electrical & Electronic Engineering"),
-    school: bi("DIT Douala — option Télécommunications", "DIT Douala — Telecommunications"),
+    year: "2021",
+    title: bi("B.Sc Informatique", "B.Sc in Computer Science"),
+    school: bi("DIT Douala — option Réseaux et Sécurité Informatique", "DIT Douala — Network and IT Security"),
     notes: [],
   },
   {
@@ -85,7 +85,8 @@ const skills = [
   {
     title: bi("Également pratiqué", "Also practised"),
     items: [
-      same("Python (Flask)"), bi("Android avec Quasar", "Android with Quasar"), same("Tauri · Electron"), same("Redis"),
+      same("Node.js · Express"), same("Socket.IO · RabbitMQ"), same("Python (Flask)"),
+      bi("Android avec Quasar", "Android with Quasar"), same("Tauri · Electron"), same("Redis"),
       same("Tailwind CSS · PrimeVue"), same("Mobile Money · SMS · ERP"),
       bi("Flutter (projets antérieurs)", "Flutter (earlier projects)"),
       bi("MongoDB (projets personnels)", "MongoDB (personal projects)"),

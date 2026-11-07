@@ -57,6 +57,8 @@ Lead développeur du front-end Nuxt 4, organisé en Backend-for-Frontend : les r
 
 Formulaires dynamiques validés par Zod, téléversement des pièces, interface bilingue.
 
+Notifications temps réel en production : service Node.js / Express, Socket.IO vers les clients et files d’événements RabbitMQ entre serveurs.
+
 Mise en place de la suite de tests Vitest et de la vérification de types comme garde-fou à chaque changement.
 
 ## Le résultat
